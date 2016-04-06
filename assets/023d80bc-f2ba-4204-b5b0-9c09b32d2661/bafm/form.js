@@ -119,6 +119,13 @@ ensureDeps(function() {
                     } else {
                         redirectionUrl = redirectUrlPersonal;
                     }
+                    $("<iframe name='dummy-iframe'/>").appendTo("body");
+                    setTimeout(function() {
+                    	$form.attr({
+                    	    target: "dummy-iframe",
+                    	    action: "about:blank"
+                    	});
+                    }, 0);
                     $form.find("input[type=submit]")
                     .prop("disabled", "disabled")
                     .val("Please wait...")
