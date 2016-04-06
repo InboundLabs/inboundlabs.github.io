@@ -41,5 +41,138 @@ var loadMultipleJS = function(srcs, cb) {
         })();
     }
 };
+var ensureDeps = function(cb) {
+    cb = cb || function() {};
+    var deps = [];
+    if (!window.URI) {
+        deps.push("https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.17.1/URI.min.js");
+    }
+    if (!window.UAParser) {
+        deps.push("https://cdnjs.cloudflare.com/ajax/libs/UAParser.js/0.7.10/ua-parser.min.js");
+    }
+    if (!window.hbspt || !window.hbspt.forms || !window.hbspt.forms.create) {
+        deps.push("//js.hsforms.net/forms/v2.js");
+    }
+    loadMultipleJS(deps, cb);
+};
+
+// http://stackoverflow.com/a/24603642/987337
+// This function ONLY works for iFrames of the same origin as their parent
+var iFrameReady = function(iFrame, fn) {
+    function ready() {
+        fn.call(this);
+    }
+
+    function readyState() {
+        if (this.readyState === "complete") {
+            ready.call(this);
+        }
+    }
+
+    // cross platform event handler for compatibility with older IE versions
+    function addEvent(elem, event, fn) {
+        if (elem.addEventListener) {
+            return elem.addEventListener(event, fn);
+        } else {
+            return elem.attachEvent("on" + event, function () {
+                return fn.call(elem, window.event);
+            });
+        }
+    }
+};
+
+var generateFormToken = function() {
+    return "ft" + Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2);
+};
+ensureDeps(function() {
+    jQuery(document).ready(function($) {
+        $("script[data-bafm-form=1]").each(function() {
+            var scriptTag = $(this);
+            var readParam = function(name, defaultValue) {
+                return $.trim(scriptTag.data(name) || "") || defaultValue;
+            };
+            var token = generateFormToken();
+            var formRoot = $("<div/>").addClass("formroot-" + token);
+            formRoot.insertAfter(scriptTag);
+            var formTarget = $("<iframe/>")
+            .attr("id", "target-" + token)
+            .attr("name", "target-" + token)
+            .css("display", "none")
+            .appendTo(formRoot);
+            var formContainer = $("<div/>")
+            .attr("id", "formcontainer-" + token)
+            .addClass("bafm-form-container")
+            .appendTo(formRoot);
+
+            var redirectUrlPersonal = readParam("redirect-url-personal", "http://bookaflashmob.com/v2/hire-a-flash-mob-for-personal-events-thank-you/");
+            var redirectUrlCorporate = readParam("redirect-url-corporate", "http://bookaflashmob.com/v2/hire-a-flash-mob-corporate-thank-you/");
+            var redirectionUrl = readParam("redirect-url-default", redirectUrlPersonal); // Sane default
+            hbspt.forms.create({ 
+                sfdcCampaignId: readParam("sfdc-campaign-id", '701A00000004QxDIAU'),
+                portalId: readParam("portal-id", '234796'),
+                css: '',
+                formId: readParam("form-id", '715c680e-f293-4576-bc29-4e2b53f7044c'),
+                onFormSubmit: function($form) {
+                    var selectedInquiryFor = $.trim($form.find("input[name=this_inquiry_is_for]:checked").val() || "").toLowerCase();
+                    if (selectedInquiryFor === "company event" || selectedInquiryFor === "brand marketing campaign") {
+                        redirectionUrl = redirectUrlCorporate;
+                    } else {
+                        redirectionUrl = redirectUrlPersonal;
+                    }
+                },
+                onFormReady: function($form) {
+                    "use strict";
+
+                    $form.attr("target", formTarget.attr("name"));
+                    
+                    // Additional fields start
+                    var uri = new URI();
+                    var uriParams = uri.search(true);
+                    
+                    $form.find("input[name=unbounce_page_title]").val(document.title).change();
+                    $form.find("input[name=unbounce_page_url]").val(location.href).change();
+                    $form.find("input[name=unbounce_page_url_raw]").val(uri.search("").fragment("").toString()).change();
+                    $form.find("input[name=website_domain_lead_converted_on]").val(uri.host()).change();
+                    $form.find("input[name=referrer_unbounce]").val(document.referrer || "").change();
+                    $form.find("input[name=unbounce_utm_campaign]").val(uriParams.utm_campaign || "").change();
+                    $form.find("input[name=unbounce_utm_source]").val(uriParams.utm_source || "").change();
+                    $form.find("input[name=unbounce_utm_medium]").val(uriParams.utm_medium || "").change();
+                    
+                    var uaResult = (new UAParser()).getResult();
+                    $form.find("input[name=browser_name]").val(uaResult.browser.name || "").change();
+                    $form.find("input[name=browser_version]").val(uaResult.browser.version || "").change();
+                    $form.find("input[name=device_type]").val(uaResult.device.type || "").change();
+                    $form.find("input[name=os_name]").val(uaResult.os.name || "").change();
+                    $form.find("input[name=os_version]").val(uaResult.os.version || "").change();
+                    
+                    
+                    // Additional fields end
+                    var onFormTargetLoad = function() {
+                        var submitted = false;
+                        var iframeUrl = null;
+                        try {
+                            iframeUrl = formTarget[0].contentWindow.location.href;
+                        } catch (e) {
+                            // Cross-domain URL, assume it is redirected
+                            submitted = true;
+                        }
+                        if (iframeUrl) {
+                            submitted = !!/^https?:.*/.test(iframeUrl);
+                        }
+                        if (submitted) {
+                            location.href = redirectionUrl;
+                        }
+                    };
+                    formTarget.on("load", onFormTargetLoad);
+                    try {
+                        iFrameReady(formTarget[0], onFormTargetLoad);
+                    } catch (e) {
+                        console.warn(e);
+                    }
+                }
+            });
+        }).remove();
+    });
+});
 
 })();
