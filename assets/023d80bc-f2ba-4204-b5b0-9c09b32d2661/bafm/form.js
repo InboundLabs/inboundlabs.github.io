@@ -125,6 +125,10 @@ ensureDeps(function() {
 
                     $form.attr("target", formTarget.attr("name"));
                     
+                    setTimeout(function() {
+                        $form.find("input[type=submit]").prop("disabled", false);
+                    });
+                    
                     // Additional fields start
                     var uri = new URI();
                     var uriParams = uri.search(true);
@@ -163,12 +167,19 @@ ensureDeps(function() {
                             location.href = redirectionUrl;
                         }
                     };
+                    onFormTargetLoad.attr("src", "");
                     formTarget.on("load", onFormTargetLoad);
                     try {
                         iFrameReady(formTarget[0], onFormTargetLoad);
                     } catch (e) {
                         console.warn(e);
                     }
+                    $form.submit(function(e) {
+                        if (e.isDefaultPrevented()) {
+                            return;
+                        }
+                        $form.find("input[type=submit]").prop("disabled", "disabled");
+                    });
                 }
             });
         }).remove();
