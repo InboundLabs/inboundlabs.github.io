@@ -167,7 +167,7 @@ ensureDeps(function() {
                             location.href = redirectionUrl;
                         }
                     };
-                    onFormTargetLoad.attr("src", "");
+                    formTarget.attr("src", "");
                     formTarget.on("load", onFormTargetLoad);
                     try {
                         iFrameReady(formTarget[0], onFormTargetLoad);
