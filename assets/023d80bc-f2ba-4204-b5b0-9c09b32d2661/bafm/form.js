@@ -175,6 +175,7 @@ ensureDeps(function() {
                         console.warn(e);
                     }
                     $form.submit(function(e) {
+                    	console.log("submit", e, e.isDefaultPrevented(), $form.find("input[type=submit]"));
                         if (e.isDefaultPrevented()) {
                             return;
                         }
