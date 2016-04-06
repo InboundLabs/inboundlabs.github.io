@@ -111,6 +111,7 @@ ensureDeps(function() {
                 sfdcCampaignId: readParam("sfdc-campaign-id", '701A00000004QxDIAU'),
                 portalId: readParam("portal-id", '234796'),
                 css: '',
+                target: "#" + formContainer.attr("id"),
                 formId: readParam("form-id", '715c680e-f293-4576-bc29-4e2b53f7044c'),
                 onFormSubmit: function($form) {
                     var selectedInquiryFor = $.trim($form.find("input[name=this_inquiry_is_for]:checked").val() || "").toLowerCase();
