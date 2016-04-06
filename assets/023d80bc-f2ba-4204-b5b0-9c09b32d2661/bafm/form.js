@@ -178,7 +178,13 @@ ensureDeps(function() {
                         if (e.isDefaultPrevented()) {
                             return;
                         }
-                        $form.find("input[type=submit]").prop("disabled", "disabled");
+                        $form.find("input[type=submit]")
+                        .prop("disabled", "disabled")
+                        .val("Please wait...")
+                        .on("click", function(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                        });
                     });
                 }
             });
