@@ -119,7 +119,7 @@ ensureDeps(function() {
                     } else {
                         redirectionUrl = redirectUrlPersonal;
                     }
-                    $("<iframe name='dummy-iframe'/>").appendTo("body");
+                    $("<iframe name='dummy-iframe'/>").css("display", "none").appendTo("body");
                     setTimeout(function() {
                     	$form.attr({
                     	    target: "dummy-iframe",
