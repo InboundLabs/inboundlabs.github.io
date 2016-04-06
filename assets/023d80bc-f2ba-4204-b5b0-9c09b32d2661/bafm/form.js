@@ -104,8 +104,8 @@ ensureDeps(function() {
             .addClass("bafm-form-container")
             .appendTo(formRoot);
 
-            var redirectUrlPersonal = readParam("redirect-url-personal", "http://bookaflashmob.com/v2/hire-a-flash-mob-for-personal-events-thank-you/");
-            var redirectUrlCorporate = readParam("redirect-url-corporate", "http://bookaflashmob.com/v2/hire-a-flash-mob-corporate-thank-you/");
+            var redirectUrlPersonal = readParam("redirect-url-personal", "//bookaflashmob.com/v2/hire-a-flash-mob-for-personal-events-thank-you/");
+            var redirectUrlCorporate = readParam("redirect-url-corporate", "//bookaflashmob.com/v2/hire-a-flash-mob-corporate-thank-you/");
             var redirectionUrl = readParam("redirect-url-default", redirectUrlPersonal); // Sane default
             hbspt.forms.create({ 
                 sfdcCampaignId: readParam("sfdc-campaign-id", '701A00000004QxDIAU'),
