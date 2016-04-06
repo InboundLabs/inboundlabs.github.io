@@ -119,6 +119,13 @@ ensureDeps(function() {
                     } else {
                         redirectionUrl = redirectUrlPersonal;
                     }
+                    $form.find("input[type=submit]")
+                    .prop("disabled", "disabled")
+                    .val("Please wait...")
+                    .on("click", function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    });
                 },
                 onFormReady: function($form) {
                     "use strict";
@@ -174,19 +181,6 @@ ensureDeps(function() {
                     } catch (e) {
                         console.warn(e);
                     }
-                    $form.submit(function(e) {
-                    	console.log("submit", e, e.isDefaultPrevented(), $form.find("input[type=submit]"));
-                        if (e.isDefaultPrevented()) {
-                            return;
-                        }
-                        $form.find("input[type=submit]")
-                        .prop("disabled", "disabled")
-                        .val("Please wait...")
-                        .on("click", function(e) {
-                            e.preventDefault();
-                            e.stopPropagation();
-                        });
-                    });
                 }
             });
         }).remove();
