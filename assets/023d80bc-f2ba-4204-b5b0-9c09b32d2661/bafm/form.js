@@ -10,8 +10,8 @@ e.parentNode.insertBefore(n, e);
 "use strict";
 
 var loadJS = function( src, cb ){
-	var ref = w.document.getElementsByTagName( "script" )[ 0 ];
-	var script = w.document.createElement( "script" );
+	var ref = document.getElementsByTagName( "script" )[ 0 ];
+	var script = document.createElement( "script" );
 	script.src = src;
 	script.async = true;
 	if (cb && typeof(cb) === "function") {
