@@ -82,7 +82,7 @@ var iFrameReady = function(iFrame, fn) {
 };
 
 var generateFormToken = function() {
-    return "ft" + Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2);
+    return "ft" + Math.random().toString(36).slice(2);
 };
 ensureDeps(function() {
     jQuery(document).ready(function($) {
