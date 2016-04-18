@@ -107,6 +107,38 @@ ensureDeps(function() {
             var redirectUrlPersonal = readParam("redirect-url-personal", "//bookaflashmob.com/v2/hire-a-flash-mob-for-personal-events-thank-you/");
             var redirectUrlCorporate = readParam("redirect-url-corporate", "//bookaflashmob.com/v2/hire-a-flash-mob-corporate-thank-you/");
             var redirectionUrl = readParam("redirect-url-default", redirectUrlPersonal); // Sane default
+            var selectRedirectionUrl = function($form) {
+                var selectedInquiryFor = $.trim($form.find("input[name=this_inquiry_is_for]:checked").val() || "").toLowerCase();
+                if (selectedInquiryFor === "company event" || selectedInquiryFor === "brand marketing campaign") {
+                    redirectionUrl = redirectUrlCorporate;
+                } else {
+                    redirectionUrl = redirectUrlPersonal;
+                }
+            };
+            var avoidDuplicate = function($form) {
+                if ($form.attr("data-submitted")) {
+                    return false;
+                }
+                $form.attr("data-submitted", 1);
+                $("<iframe name='dummy-iframe'/>").css("display", "none").appendTo("body");
+                setTimeout(function() {
+                	$form.attr("target", "dummy-iframe");
+                	$form.attr("action", "about:blank");
+                    try {
+                        $form[0].submit = function() {};
+                    } catch (e) {
+                        console.log(e);
+                    }
+                }, 0);
+                $form.find("input[type=submit]")
+                .prop("disabled", "disabled")
+                .val("Please wait...")
+                .on("click", function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                });
+                return true;
+            };
             hbspt.forms.create({ 
                 sfdcCampaignId: readParam("sfdc-campaign-id", '701A00000004QxDIAU'),
                 portalId: readParam("portal-id", '234796'),
@@ -115,33 +147,10 @@ ensureDeps(function() {
                 formId: readParam("form-id", '715c680e-f293-4576-bc29-4e2b53f7044c'),
                 formInstanceId: token,
                 onFormSubmit: function($form) {
-                    if ($form.attr("data-submitted")) {
+                    if (!avoidDuplicate($form)) {
                         throw new Error("Already submitted, throwing error to avoid duplicated submission");
                     }
-                    $form.attr("data-submitted", 1);
-                    var selectedInquiryFor = $.trim($form.find("input[name=this_inquiry_is_for]:checked").val() || "").toLowerCase();
-                    if (selectedInquiryFor === "company event" || selectedInquiryFor === "brand marketing campaign") {
-                        redirectionUrl = redirectUrlCorporate;
-                    } else {
-                        redirectionUrl = redirectUrlPersonal;
-                    }
-                    $("<iframe name='dummy-iframe'/>").css("display", "none").appendTo("body");
-                    setTimeout(function() {
-                    	$form.attr("target", "dummy-iframe");
-                    	$form.attr("action", "about:blank");
-                        try {
-                            $form[0].submit = function() {};
-                        } catch (e) {
-                            console.log(e);
-                        }
-                    }, 0);
-                    $form.find("input[type=submit]")
-                    .prop("disabled", "disabled")
-                    .val("Please wait...")
-                    .on("click", function(e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                    });
+                    selectRedirectionUrl($form);
                 },
                 onFormReady: function($form) {
                     "use strict";
@@ -150,6 +159,15 @@ ensureDeps(function() {
                     
                     setTimeout(function() {
                         $form.find("input[type=submit]").prop("disabled", false);
+                        $form.attr("data-submitted", "");
+                    });
+                    $form.on("submit", function(e) {
+                        if (!avoidDuplicate($form)) {
+                            e.preventDefault();
+                            e.stopImmediatePropagation();
+                            return false;
+                        }
+                        selectRedirectionUrl($form);
                     });
                     
                     // Additional fields start
