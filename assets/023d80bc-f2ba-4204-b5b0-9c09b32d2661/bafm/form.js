@@ -79,6 +79,17 @@ var iFrameReady = function(iFrame, fn) {
             });
         }
     }
+
+    addEvent(iFrame, "load", function () {
+        ready.call(iFrame.contentDocument || iFrame.contentWindow.document);
+    });
+
+    function checkLoaded() {
+        var doc = iFrame.contentDocument || iFrame.contentWindow.document;
+        addEvent(doc, "DOMContentLoaded", ready);
+        addEvent(doc, "readystatechange", readyState);
+    }
+    checkLoaded();
 };
 
 var generateFormToken = function() {
@@ -214,6 +225,7 @@ ensureDeps(function() {
                     };
                     formTarget.attr("src", "");
                     formTarget.on("load", onFormTargetLoad);
+                    formTarget.load(onFormTargetLoad);
                     try {
                         iFrameReady(formTarget[0], onFormTargetLoad);
                     } catch (e) {
