@@ -122,8 +122,8 @@ ensureDeps(function() {
                 $form.attr("data-submitted", 1);
                 $("<iframe name='dummy-iframe'/>").css("display", "none").appendTo("body");
                 setTimeout(function() {
-                	$form.attr("target", "dummy-iframe");
-                	$form.attr("action", "about:blank");
+                    $form.attr("target", "dummy-iframe");
+                    $form.attr("action", "about:blank");
                     try {
                         $form[0].submit = function() {};
                     } catch (e) {
@@ -133,6 +133,7 @@ ensureDeps(function() {
                 $form.find("input[type=submit]")
                 .prop("disabled", "disabled")
                 .val("Please wait...")
+                .text("Please wait...")
                 .on("click", function(e) {
                     e.preventDefault();
                     e.stopPropagation();
