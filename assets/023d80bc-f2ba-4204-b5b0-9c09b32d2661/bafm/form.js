@@ -81,7 +81,11 @@ var iFrameReady = function(iFrame, fn) {
     }
 
     addEvent(iFrame, "load", function () {
-        ready.call(iFrame.contentDocument || iFrame.contentWindow.document);
+        var doc = null;
+        try {
+            doc = (iFrame.contentDocument || iFrame.contentWindow.document);
+        } catch (e) {}
+        ready.call(doc);
     });
 
     function checkLoaded() {
