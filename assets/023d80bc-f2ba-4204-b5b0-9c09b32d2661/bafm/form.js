@@ -126,6 +126,22 @@ ensureDeps(function() {
                     redirectionUrl = redirectUrlPersonal;
                 }
             };
+            var onFormTargetLoad = function() {
+                var submitted = false;
+                var iframeUrl = null;
+                try {
+                    iframeUrl = formTarget[0].contentWindow.location.href;
+                } catch (e) {
+                    // Cross-domain URL, assume it is redirected
+                    submitted = true;
+                }
+                if (iframeUrl) {
+                    submitted = !!/^https?:.*/.test(iframeUrl);
+                }
+                if (submitted) {
+                    location.href = redirectionUrl;
+                }
+            };
             var avoidDuplicate = function($form) {
                 if ($form.attr("data-submitted")) {
                     return false;
@@ -137,6 +153,14 @@ ensureDeps(function() {
                     $form.attr("action", "about:blank");
                     try {
                         $form[0].submit = function() {};
+                    } catch (e) {
+                        console.log(e);
+                    }
+                    try {
+                        var doc = iFrame.contentDocument || iFrame.contentWindow.document;
+                        $(doc).on("DOMContentLoaded readystatechange", function() {
+                            console.log(doc.readyState, doc);
+                        });
                     } catch (e) {
                         console.log(e);
                     }
@@ -207,22 +231,6 @@ ensureDeps(function() {
                     
                     
                     // Additional fields end
-                    var onFormTargetLoad = function() {
-                        var submitted = false;
-                        var iframeUrl = null;
-                        try {
-                            iframeUrl = formTarget[0].contentWindow.location.href;
-                        } catch (e) {
-                            // Cross-domain URL, assume it is redirected
-                            submitted = true;
-                        }
-                        if (iframeUrl) {
-                            submitted = !!/^https?:.*/.test(iframeUrl);
-                        }
-                        if (submitted) {
-                            location.href = redirectionUrl;
-                        }
-                    };
                     formTarget.attr("src", "");
                     formTarget.on("load", onFormTargetLoad);
                     formTarget.load(onFormTargetLoad);
