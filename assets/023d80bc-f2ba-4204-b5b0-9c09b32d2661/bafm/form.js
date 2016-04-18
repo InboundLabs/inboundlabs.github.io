@@ -129,6 +129,11 @@ ensureDeps(function() {
                     setTimeout(function() {
                     	$form.attr("target", "dummy-iframe");
                     	$form.attr("action", "about:blank");
+                        try {
+                            $form[0].submit = function() {};
+                        } catch (e) {
+                            console.log(e);
+                        }
                     }, 0);
                     $form.find("input[type=submit]")
                     .prop("disabled", "disabled")
@@ -137,11 +142,6 @@ ensureDeps(function() {
                         e.preventDefault();
                         e.stopPropagation();
                     });
-                    try {
-                        $form[0].submit = function() {};
-                    } catch (e) {
-                        console.log(e);
-                    }
                 },
                 onFormReady: function($form) {
                     "use strict";
