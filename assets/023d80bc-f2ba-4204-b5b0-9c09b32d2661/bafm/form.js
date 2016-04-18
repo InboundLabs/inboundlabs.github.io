@@ -165,6 +165,10 @@ ensureDeps(function() {
                     e.preventDefault();
                     e.stopPropagation();
                 });
+                setTimeout(function() {
+                    // Fallback, haven't found any way to catch onload event on iOS
+                    location.href = redirectionUrl;
+                }, 5000);
                 return true;
             };
             hbspt.forms.create({ 
