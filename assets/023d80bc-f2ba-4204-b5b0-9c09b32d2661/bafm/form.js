@@ -105,7 +105,7 @@ ensureDeps(function() {
             var token = generateFormToken();
             var formRoot = $("<div/>").addClass("formroot-" + token);
             formRoot.insertAfter(scriptTag);
-            var formTarget = $("<iframe/>")
+            var formTarget = $("<iframe src='about:blank'/>")
             .attr("id", "target-" + token)
             .attr("name", "target-" + token)
             .css("display", "none")
