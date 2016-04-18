@@ -147,20 +147,12 @@ ensureDeps(function() {
                     return false;
                 }
                 $form.attr("data-submitted", 1);
-                $("<iframe name='dummy-iframe'/>").css("display", "none").appendTo("body");
+                $("<iframe name='dummy-iframe' src='about:blank'/>").css("display", "none").appendTo("body");
                 setTimeout(function() {
                     $form.attr("target", "dummy-iframe");
                     $form.attr("action", "about:blank");
                     try {
                         $form[0].submit = function() {};
-                    } catch (e) {
-                        console.log(e);
-                    }
-                    try {
-                        var doc = formTarget[0].contentDocument || formTarget[0].contentWindow.document;
-                        $(doc).on("DOMContentLoaded readystatechange", function() {
-                            console.log(doc.readyState, doc);
-                        });
                     } catch (e) {
                         console.log(e);
                     }
