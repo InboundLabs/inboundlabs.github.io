@@ -162,6 +162,9 @@ ensureDeps(function() {
                         $form.attr("data-submitted", "");
                     });
                     $form.on("submit", function(e) {
+                        if (e.isDefaultPrevented()) {
+                            return;
+                        }
                         if (!avoidDuplicate($form)) {
                             e.preventDefault();
                             e.stopImmediatePropagation();
