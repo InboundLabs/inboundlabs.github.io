@@ -157,7 +157,7 @@ ensureDeps(function() {
                         console.log(e);
                     }
                     try {
-                        var doc = iFrame.contentDocument || iFrame.contentWindow.document;
+                        var doc = formTarget[0].contentDocument || formTarget[0].contentWindow.document;
                         $(doc).on("DOMContentLoaded readystatechange", function() {
                             console.log(doc.readyState, doc);
                         });
