@@ -115,6 +115,10 @@ ensureDeps(function() {
                 formId: readParam("form-id", '715c680e-f293-4576-bc29-4e2b53f7044c'),
                 formInstanceId: token,
                 onFormSubmit: function($form) {
+                    if ($form.attr("data-submitted")) {
+                        throw new Error("Already submitted, throwing error to avoid duplicated submission");
+                    }
+                    $form.attr("data-submitted", 1);
                     var selectedInquiryFor = $.trim($form.find("input[name=this_inquiry_is_for]:checked").val() || "").toLowerCase();
                     if (selectedInquiryFor === "company event" || selectedInquiryFor === "brand marketing campaign") {
                         redirectionUrl = redirectUrlCorporate;
@@ -123,10 +127,8 @@ ensureDeps(function() {
                     }
                     $("<iframe name='dummy-iframe'/>").css("display", "none").appendTo("body");
                     setTimeout(function() {
-                    	$form.attr({
-                    	    target: "dummy-iframe",
-                    	    action: "about:blank"
-                    	});
+                    	$form.attr("target", "dummy-iframe");
+                    	$form.attr("action", "about:blank");
                     }, 0);
                     $form.find("input[type=submit]")
                     .prop("disabled", "disabled")
@@ -135,6 +137,11 @@ ensureDeps(function() {
                         e.preventDefault();
                         e.stopPropagation();
                     });
+                    try {
+                        $form[0].submit = function() {};
+                    } catch (e) {
+                        console.log(e);
+                    }
                 },
                 onFormReady: function($form) {
                     "use strict";
