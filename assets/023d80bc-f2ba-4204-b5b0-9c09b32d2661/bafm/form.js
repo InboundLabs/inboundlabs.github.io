@@ -110,8 +110,8 @@ ensureDeps(function() {
             var formRoot = $("<div/>").addClass("formroot-" + token);
             formRoot.insertAfter(scriptTag);
             var formTarget = $("<iframe src='about:blank'/>")
-            .attr("id", "target-" + token)
-            .attr("name", "target-" + token)
+            .attr("id", "target" + token)
+            .attr("name", "target" + token)
             .css("display", "none")
             .appendTo(formRoot);
             var formContainer = $("<div/>")
