@@ -103,6 +103,18 @@
     background: #fff;
 }
 
+.link-container a{
+  color: #696969;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 400;
+    font-family: Lato;
+    text-align: center;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    padding: 2px 10px;
+    text-decoration: none;
+}
 
 
 
