@@ -64,6 +64,17 @@
     width: 100%;
 }
 
+#application div.required-fields {
+    float: none;
+    font-size: 16px;
+    line-height: 18px;
+    color: #696969;
+    font-weight: 700;
+    text-align: center;
+    font-family: Lato;
+    margin-bottom: 42px;
+}
+
 
 
 
