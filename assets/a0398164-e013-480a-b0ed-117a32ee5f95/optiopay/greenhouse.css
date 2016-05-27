@@ -5,7 +5,7 @@
 }
 
 #app_body {
-    max-width: 640px!important;
+    max-width: 710px!important;
     position: relative;
     padding-left: 0px!important;
     margin: 0 auto!important;
@@ -48,6 +48,20 @@
     line-height: 18px;
     font-weight: 400;
     font-family: Lato;
+}
+
+#main_fields .asterisk, #custom_fields .asterisk, #eeoc_fields .asterisk {
+    color: #008e94;
+}
+
+#main_fields div.field, #custom_fields div.field, #eeoc_fields div.field {
+    clear: both;
+    overflow: hidden;
+}
+
+#main_fields div.field input[type=text], #main_fields div.field textarea, #eeoc_fields div.field input[type=text], #eeoc_fields div.field textarea {
+    max-width: 519px;
+    width: 100%;
 }
 
 
