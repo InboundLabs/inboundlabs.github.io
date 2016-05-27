@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300italic,100,300,400italic,700,700italic,900);
+
 .company-name + a[target=_top] {
   display: none;
 }
@@ -25,3 +27,30 @@
     font-weight: 300;
     font-family: Lato;
 }
+
+#application .heading:after {
+    display: block;
+    background: #C4C4C4;
+    width: 100%;
+    max-width: 90px;
+    height: 1px;
+    margin: 27px auto;
+    content: "";
+}
+
+#main_fields div.field label, #eeoc_fields div.field label {
+    float: left;
+    width: 105px;
+    text-align: right;
+    margin-right: 10px;
+    color: #696969;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 400;
+    font-family: Lato;
+}
+
+
+
+
+
