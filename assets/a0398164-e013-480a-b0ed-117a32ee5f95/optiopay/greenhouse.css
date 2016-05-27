@@ -10,6 +10,18 @@
 }
 #application {
     padding: 25px 30px 30px 30px;
-    background-color: #fff!important;
+    background-color: #fcfcfc!important;
     max-width: 580px!important;
+}
+
+#application .heading {
+    float: none;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 36px;
+    color: #696969;
+    font-weight: 300;
+    font-family: Lato;
 }
