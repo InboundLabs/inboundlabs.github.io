@@ -1,3 +1,15 @@
 .company-name + a[target=_top] {
   display: none;
 }
+
+#app_body {
+    max-width: 640px!important;
+    position: relative;
+    padding-left: 0px!important;
+    margin: 0 auto!important;
+}
+#application {
+    padding: 25px 30px 30px 30px;
+    background-color: #fff!important;
+    max-width: 580px!important;
+}
