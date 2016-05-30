@@ -11,7 +11,7 @@
     margin: 0 auto!important;
 }
 #application {
-    padding: 25px 30px 30px 30px;
+    padding: 5px 30px 30px 30px;
     background-color: #fcfcfc!important;
     max-width: 670px!important;
 }
@@ -36,6 +36,10 @@
     height: 1px;
     margin: 27px auto;
     content: "";
+}
+
+#main {
+    padding-top: 0px;
 }
 
 #main_fields div.field label, #eeoc_fields div.field label {
