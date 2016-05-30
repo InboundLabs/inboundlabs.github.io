@@ -223,4 +223,18 @@
   }
 }
 
+@media (max-width: 500px){
+iframe {
+    max-width: 100%;
+    min-height: 3085px;
+}
+}
+
+@media (max-width: 330px){
+iframe {
+    max-width: 100%;
+    min-height: 3085px;
+}
+}
+
 
