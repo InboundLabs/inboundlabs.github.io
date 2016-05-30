@@ -239,6 +239,16 @@
 
 #main_fields div.field .field-error-msg, #eeoc_fields div.field .field-error-msg {
     padding-left: 125px;
+    font-size: 16px;
+    font-family: Lato;
+}
+
+.field-error-msg {
+    color: #FF2236;
+    float: left;
+    font-size: 16px;
+    font-family: Lato;
+    line-height: 26px;
 }
 
 label.xxx ~ br { display: none; }
