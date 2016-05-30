@@ -91,6 +91,10 @@
     background: #fff;
 }
 
+#main_fields div.field input[type=text], #main_fields div.field textarea, #eeoc_fields div.field input[type=text], #eeoc_fields div.field textarea:focus{
+    border: 1px solid #008e94;
+}
+
 .link-container a{
   color: #696969;
     font-size: 16px;
