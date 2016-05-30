@@ -54,6 +54,7 @@
     font-family: Lato;
     vertical-align: middle;
     padding-top: 14px;
+    padding-bottom: 11px;
 }
 
 #main_fields .asterisk, #custom_fields .asterisk, #eeoc_fields .asterisk {
