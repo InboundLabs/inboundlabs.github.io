@@ -130,6 +130,8 @@
     position: relative;
     top: 21px;
     left: 115px;
+    margin-bottom: 7px;
+    margin-top: 6px;
 }
 
 #custom_fields div.field input[type=text], #custom_fields div.field textarea {
