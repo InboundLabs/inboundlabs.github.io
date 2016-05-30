@@ -237,6 +237,10 @@
     margin-top: 4px;
 }
 
+#main_fields div.field .field-error-msg, #eeoc_fields div.field .field-error-msg {
+    padding-left: 125px;
+}
+
 @media(max-width: 767px){
   #main_fields div.field textarea {
     position: relative;
