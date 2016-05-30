@@ -124,7 +124,7 @@
 
 #custom_fields div.field input[type=text], #custom_fields div.field textarea {
     margin-top: 6px;
-    max-width: 612px !important;
+    max-width: 622px !important;
     width: 100%!important;
     border: 1px solid #cccccc;
     border-radius: 3px;
@@ -155,7 +155,7 @@
     height: 1px;
     background-color: #c4c4c4;
     margin: 43px 0 25px;
-    max-width: 632px;
+    max-width: 643px;
 }
 
 .attach-or-paste {
