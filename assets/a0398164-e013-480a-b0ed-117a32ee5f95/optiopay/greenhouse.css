@@ -91,6 +91,11 @@
     background: #fff;
 }
 
+#main_fields div.field input[type=text]:focus, #main_fields div.field textarea:focus, #custom_fields div.field input[type=text]:focus, #custom_fields div.field textarea:focus, #eeoc_fields div.field input[type=text]:focus, #eeoc_fields div.field textarea:focus {
+    border-color: #008e94;
+    outline: none;
+}
+
 #main_fields input:focus{
     border: 1px solid #008e94; 
 }
