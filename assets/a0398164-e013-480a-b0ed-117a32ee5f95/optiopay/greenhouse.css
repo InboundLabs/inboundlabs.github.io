@@ -112,14 +112,24 @@
     text-align: center;
     border: 1px solid #cccccc;
     border-radius: 3px;
-    padding: 15px 45px;
+    padding: 15px 55px;
     text-decoration: none;
     margin-right: 10px;
+    background: #ffffff;
+}
+.link-container a:hover{
+  background: #f4f4f4;
 }
 
 .attach-or-paste {
   padding-top: 13px;
   padding-bottom: 10px;
+}
+#main_fields div.field textarea {
+    height: 154px;
+    position: relative;
+    top: 21px;
+    left: 115px;
 }
 
 
