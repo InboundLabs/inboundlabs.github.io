@@ -241,6 +241,8 @@
     padding-left: 125px;
 }
 
+label.xxx ~ br { display: none; }
+
 @media(max-width: 767px){
   #main_fields div.field textarea {
     position: relative;
