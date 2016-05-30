@@ -167,5 +167,15 @@
     max-width: 632px;
 }
 
+.attach-or-paste {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #696969;
+    font-size: 16px;
+    line-height: 32px;
+    font-weight: 400;
+    font-family: Lato;
+}
+
 
 
