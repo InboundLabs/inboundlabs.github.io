@@ -208,4 +208,23 @@
     top: -2px;
 }
 
+#submit_app {
+    color: #fff;
+    text-shadow: none;
+    cursor: pointer;
+    border: none;
+    padding: 7px 15px;
+    font-size: 14px;
+    background: #ff6a00;
+    font-family: Lato;
+    font-weight: 400;
+    border-radius: 5px;
+    text-align: center;
+    max-width: 146px;
+    height: 32px;
+    line-height: 10px;
+    float: left;
+    margin-top: 4px;
+}
+
 
