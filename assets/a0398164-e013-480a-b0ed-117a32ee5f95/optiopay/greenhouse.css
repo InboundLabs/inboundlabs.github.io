@@ -133,8 +133,9 @@
 }
 
 #custom_fields div.field input[type=text], #custom_fields div.field textarea {
-    max-width: 497px;
-    width: 100%;
+    margin-top: 6px;
+    max-width: 622px !important;
+    width: 100%!important;
     border: 1px solid #cccccc;
     border-radius: 3px;
     height: 35px;
@@ -147,8 +148,6 @@
 }
 
 #custom_fields div.field label{
-    float: left;
-    width: 115px;
     text-align: right;
     margin-right: 10px;
     color: #696969;
