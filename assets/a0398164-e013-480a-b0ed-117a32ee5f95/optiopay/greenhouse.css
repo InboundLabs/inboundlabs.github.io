@@ -91,7 +91,7 @@
     background: #fff;
 }
 
-#main_fields div.field input:focus {
+#main_fields input:focus{
     border: 1px solid #008e94; 
 }
 
