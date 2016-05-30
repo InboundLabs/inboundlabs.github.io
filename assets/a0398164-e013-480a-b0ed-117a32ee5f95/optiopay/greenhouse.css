@@ -106,7 +106,7 @@
 }
 
 .link-container a{
-  color: #696969;
+    color: #696969;
     font-size: 16px;
     line-height: 18px;
     font-weight: 400;
@@ -114,7 +114,10 @@
     text-align: center;
     border: 1px solid #cccccc;
     border-radius: 3px;
-    padding: 15px 56px 15px 57px;
+    padding: 13px 25px;
+    min-width: 164px;
+    box-sizing: border-box;
+    display: inline-block;
     text-decoration: none;
     margin-right: 10px;
     background: #ffffff;
