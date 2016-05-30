@@ -104,6 +104,7 @@
     text-decoration: none;
     margin-right: 10px;
     background: #ffffff;
+    background-image: none!important;
 }
 .link-container a:hover{
   background: #f4f4f4;
@@ -221,6 +222,22 @@
     position: relative;
     left: 0;
   }
+  body .link-container a{
+    color: #696969;
+    font-size: 16px!important;
+    line-height: 18px!important;
+    font-weight: 400!important;
+    font-family: Lato!important;
+    text-align: center!important;
+    border: 1px solid #cccccc!important;
+    border-radius: 3px!important;
+    padding: 15px 56px 15px 57px!important;
+    text-decoration: none!important;
+    margin-right: 10px!important;
+    background: #ffffff!important;
+    background-image: none!important;
+}
+  
 }
 
 @media (max-width: 500px){
