@@ -179,5 +179,10 @@
     font-family: Lato;
 }
 
+.attach-or-paste .link-container a:not(:last-child)::after {
+    content: ",";
+    display: none;
+}
+
 
 
