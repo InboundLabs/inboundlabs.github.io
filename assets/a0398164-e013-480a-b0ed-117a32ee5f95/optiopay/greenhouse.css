@@ -11,7 +11,7 @@
     margin: 0 auto!important;
 }
 #application {
-    padding: 5px 30px 30px 30px;
+    padding: 5px 30px 0 30px;
     background-color: #fcfcfc!important;
     max-width: 670px!important;
 }
@@ -218,7 +218,9 @@
     position: relative;
     top: -2px;
 }
-
+#submit_buttons {
+    text-align: center;
+}
 #submit_app {
     color: #fff;
     text-shadow: none;
@@ -234,7 +236,7 @@
     max-width: 146px;
     height: 32px;
     line-height: 10px;
-    float: left;
+    float: none;
     margin-top: 4px;
 }
 
