@@ -40,6 +40,7 @@
 
 #main {
     padding-top: 0px;
+    padding-bottom: 0;
 }
 
 #main_fields div.field label, #eeoc_fields div.field label {
