@@ -238,6 +238,20 @@
     line-height: 10px;
     float: none;
     margin-top: 4px;
+    text-align: center;
+    background: #ff6a00;
+    font-size: 14px;
+    line-height: 24px;
+    color: #fff;
+    font-weight: 400;
+    padding: 5px 32px;
+    margin: 0 auto;
+    float: none;
+    display: block;
+    border-radius: 5px;
+    width: 100%;
+    margin-right: 12px;
+    border: 1px solid #EB6200;
 }
 
 #main_fields div.field .field-error-msg, #eeoc_fields div.field .field-error-msg {
