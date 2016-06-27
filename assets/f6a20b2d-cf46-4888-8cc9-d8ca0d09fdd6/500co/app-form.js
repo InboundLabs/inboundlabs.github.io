@@ -13,7 +13,7 @@
                 return launchedMandatoryFieldNames.indexOf($(this).attr("name")) > -1;
             });
             if (launchedMandatoryFields.length !== launchedMandatoryFieldNames.length) {
-                console.warning("Unmatched number of fields!", launchedMandatoryFieldNames, launchedMandatoryFields);
+                console.warn("Unmatched number of fields!", launchedMandatoryFieldNames, launchedMandatoryFields);
             }
             launchedMandatoryFields.addClass("launched-required");
             var isLaunchedFieldsMandatory = function() {
