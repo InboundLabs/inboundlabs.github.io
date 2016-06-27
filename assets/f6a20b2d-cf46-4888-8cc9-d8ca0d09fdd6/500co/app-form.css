@@ -53,6 +53,12 @@ h3 {
     border: 1px solid #333;
 }
 
+#appb17-formhost select {
+    width: 100%;
+    padding: 14px 75px 14px 14px;
+    height: auto;
+}
+
 #appb17-formhost .multi-container {
     overflow: hidden;
     margin: 0;
