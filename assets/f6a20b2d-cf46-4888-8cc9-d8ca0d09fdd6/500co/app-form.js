@@ -12,9 +12,6 @@
             var launchedMandatoryFields = $form.find("input, textarea").filter(function() {
                 return launchedMandatoryFieldNames.indexOf($(this).attr("name")) > -1;
             });
-            if (launchedMandatoryFields.length !== launchedMandatoryFieldNames.length) {
-                console.warn("Unmatched number of fields!", launchedMandatoryFieldNames, launchedMandatoryFields);
-            }
             launchedMandatoryFields.addClass("launched-required");
             var isLaunchedFieldsMandatory = function() {
                 var selectedLaunchedRadio = $form.find("input[name=product_launched]:checked");
