@@ -180,7 +180,7 @@
             submissionFrame.load(function() {
                 clearTimeout(timeoutToken);
                 submissionFrame.remove();
-                $.ajax("https://script.google.com/macros/s/AKfycbzcwekurPuau2slWavrvVMMCtC7qgWqCXApCD2En1kvLJd07H4h/exec?callback=?&submissionToken=" + token, {
+                $.ajax(TARGET_URL + "?callback=?&submissionToken=" + token, {
                     dataType: "jsonp"
                 }).pipe(function(resp) {
                     if (resp.success) {
@@ -194,7 +194,7 @@
                             location.href = "http://500.co/";
                         }, 10000);
                     } else {
-                        onSubmissionFail("Submission handler returned error, check log");
+                        onSubmissionFail("Submission handler returned error, check log. resp: " + JSON.stringify(resp));
                     }
                 }).fail(function(reason) {
                     onSubmissionFail("Failed to get submission result", reason);
