@@ -1,6 +1,7 @@
 jQuery(document).ready(function($) {
   "use strict";
   $(document).on("onAppFormReady", function(e, $form) {
+    $form = $($form);
     var locationField = $form.find("[name=what_dojo]");
     var ownerField = $form.find("[name=hubspot_owner_form]");
     var locationOwners = {
