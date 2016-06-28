@@ -142,6 +142,16 @@
             if (validationError) {
                 return;
             }
+            var submittedMessage = $("<div class='submitted-message'>Thanks for submitting details about your startup to us. Someone on the team will contact you if there is a fit.</div>");
+            setTimeout(function() {
+                var hsSubmittedMessage = $(".submitted-message");
+                if (!hsSubmittedMessage.length) {
+                    return;
+                }
+                submittedMessage = hsSubmittedMessage.clone();
+                hsSubmittedMessage.text("Submitting your form, please wait...");
+                $("body").addClass("show-submitted-message");
+            }, 1000);
             $form.find("input[type=submit]").hide().after($(decodeURIComponent("%3Cp%2F%3E")).addClass("form-submitting").text("Submitting your form, please wait..."));
             $form.on("submit.appb17", function(e) {
                 e.preventDefault();
@@ -192,6 +202,8 @@
                             killer: true
                         });
                         $form.remove();
+                        $("body").addClass("show-submitted-message");
+                        $("#appb17-formhost").html("").append(submittedMessage);
                         setTimeout(function() {
                             location.href = "http://500.co/";
                         }, 10000);
