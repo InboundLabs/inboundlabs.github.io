@@ -17,6 +17,13 @@ h3 {
     margin-bottom: 89px;
 }
 
+.submitted-message {
+    display: none;
+}
+.show-submitted-message .submitted-message {
+    display: block;
+}
+
 #appb17-formhost .hs_product_launched .input .req-label,#appb17-formhost .required-field .hs-form-required {
     display: none;
 }
