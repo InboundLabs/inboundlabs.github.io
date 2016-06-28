@@ -129,7 +129,7 @@
             $(document).ready(function() {
                 setTimeout(function() {
                     $(document).trigger("onAppFormReady", $form);
-                });
+                }, 100);
             });
         },
         onFormSubmit: function($form) {
