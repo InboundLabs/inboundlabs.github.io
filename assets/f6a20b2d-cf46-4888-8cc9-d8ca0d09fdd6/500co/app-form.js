@@ -126,6 +126,11 @@
                     }
                 }, 10);
             });
+            $(document).ready(function() {
+                setTimeout(function() {
+                    $(document).trigger("onAppFormReady", $form);
+                });
+            });
         },
         onFormSubmit: function($form) {
             $form.attr("action", "about:blank");
