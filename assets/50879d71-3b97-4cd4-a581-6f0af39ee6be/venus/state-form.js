@@ -6,6 +6,7 @@ window.__initStateForm = function($form) {
         console.log("Not all required fields are present");
         return;
     }
+    window.initCountry = window.initCountry || function() {};
     var targetFields = $form.find("[name=state], [name=state_province_new__c]");
     var placeholderField = $form.find("[name=state_placeholder]");
     placeholderField.closest(".hs-form-field").parent().hide();
