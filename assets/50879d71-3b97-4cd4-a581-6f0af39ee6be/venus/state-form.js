@@ -7,6 +7,9 @@ window.__initStateForm = function($form) {
         return;
     }
     window.initCountry = window.initCountry || function() {};
+    if ($form.data("form-id") === "767f4061-d55e-4c6e-af76-d7550fba6063") {
+        $("<style type='text/css'> .career-form-hs .hs-form fieldset.form-columns-1 .hs_country, .career-form-hs .hs-form fieldset.form-columns-1 .hs_state_province { float: none; width: auto; } \n #theme-page .career-form-hs select { margin: 0; width: 100%; }</style>").appendTo("head");
+    }
     var targetFields = $form.find("[name=state], [name=state_province_new__c]");
     var placeholderField = $form.find("[name=state_placeholder]");
     placeholderField.closest(".hs-form-field").parent().hide();
