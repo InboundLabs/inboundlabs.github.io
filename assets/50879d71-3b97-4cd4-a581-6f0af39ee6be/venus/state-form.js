@@ -72,3 +72,44 @@ window.__initStateForm = function($form) {
     $form.submit(validateMandatoryState);
     $form.find("input[type=submit]").click(validateMandatoryState);
 };
+if (window.jQuery) {
+    window.jQuery(document).ready(function($) {
+        "use strict";
+        $("script.venus-state-form").each(function() {
+            var scriptTag = $(this);
+            if (scriptTag.data("inject-style")) {
+                $("<link rel='stylesheet' type='text/css' href='//inboundlabs.github.io/assets/50879d71-3b97-4cd4-a581-6f0af39ee6be/venus/state-form-style.css' />").appendTo("head");
+            }
+            if (scriptTag.data("form-id")) {
+                var target = scriptTag.data("form-container") || "career-form-hs";
+                if (!$("#" + target).length) {
+                    var formContainer = $('<div class="career-form-hs"/>');
+                    formContainer.attr("id", target);
+                    if (scriptTag.data("include-notes")) {
+                        formContainer.append($('<p>* indicates required field</p><p>We value your <a href="/en-global/privacy-policy/">Privacy</a></p>'))
+                    }
+                    formContainer.insertAfter(scriptTag);
+                }
+                var initForm = function() {
+                    hbspt.forms.create({
+                        portalId: scriptTag.data("portal-id") || '712058',
+                        formId: scriptTag.data("form-id"),
+                        target: "#" + target,
+                        onFormReady: function($form) {
+                            window.__initStateForm($form);
+                        }
+                    });
+                };
+                if (window.hbspt && window.hbspt.forms) {
+                    initForm();
+                } else {
+                    $.ajax({
+                        url: "//js.hsforms.net/forms/v2.js",
+                        cache: true,
+                        dataType: "script"
+                    }).done(initForm);
+                }
+            }
+        });
+    });
+}
