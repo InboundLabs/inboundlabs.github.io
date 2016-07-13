@@ -110,6 +110,7 @@ if (window.jQuery) {
                     }).done(initForm);
                 }
             }
+            scriptTag.remove();
         });
     });
 }
