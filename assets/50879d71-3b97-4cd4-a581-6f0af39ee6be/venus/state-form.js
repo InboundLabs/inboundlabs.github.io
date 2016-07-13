@@ -78,7 +78,7 @@ if (window.jQuery) {
         $("script.venus-state-form").each(function() {
             var scriptTag = $(this);
             if (scriptTag.data("inject-style")) {
-                $("<link rel='stylesheet' type='text/css' href='//inboundlabs.github.io/assets/50879d71-3b97-4cd4-a581-6f0af39ee6be/venus/state-form-style.css' />").appendTo("head");
+                $("<link rel='stylesheet' type='text/css' href='//inboundlabs.github.io/assets/50879d71-3b97-4cd4-a581-6f0af39ee6be/venus/state-form-style.css' />").appendTo("body");
             }
             if (scriptTag.data("form-id")) {
                 var target = scriptTag.data("form-container") || "career-form-hs";
