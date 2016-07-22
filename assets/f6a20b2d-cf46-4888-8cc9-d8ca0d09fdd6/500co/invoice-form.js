@@ -194,6 +194,7 @@ jQuery(document).ready(function($) {
     loadScriptFor("https://cdnjs.cloudflare.com/ajax/libs/jquery-noty/2.3.8/packaged/jquery.noty.packaged.min.js", window.noty && $.noty);
     var scriptTag = $("script.invoice-form-loader");
     $("<div class='invoice-form'><div id='invoice-form-host'/></div>").insertBefore(scriptTag.first());
+    $("<link rel='stylesheet' type='text/css' href='//inboundlabs.github.io/assets/f6a20b2d-cf46-4888-8cc9-d8ca0d09fdd6/500co/invoice-form.css' />").appendTo("body");
     scriptTag.remove();
     
     onCompLoad();
