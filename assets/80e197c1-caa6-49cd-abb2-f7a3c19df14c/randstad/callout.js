@@ -1,1 +1,3 @@
-(function() {})();
+(function() {
+    console.log("It works!");
+})();
