@@ -1,0 +1,162 @@
+.randstad-callout {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    -webkit-transition: -webkit-transform 500ms ease;
+    -moz-transition: -moz-transform 500ms ease;
+    -ms-transition: -ms-transform 500ms ease;
+    -o-transition: -o-transform 500ms ease;
+    transition: transform 500ms ease;
+    -moz-transform: translateX(-100%) translateY(-50%);
+    -webkit-transform: translateX(-100%) translateY(-50%);
+    -o-transform: translateX(-100%) translateY(-50%);
+    -ms-transform: translateX(-100%) translateY(-50%);
+    transform: translateX(-100%) translateY(-50%);
+    font: 14px/1.8 Tahoma, sans-serif;
+    color: white;
+    width: 315px;
+    pointer-events: none;
+}
+.randstad-callout.in {
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.randstad-callout .nowrap {
+    white-space: nowrap;
+}
+.randstad-callout h2 {
+    font-size: 27px;
+    line-height: 1.5;
+    font-weight: normal;
+    color: white;
+    margin: 0 0 50px;
+}
+.randstad-callout a {
+    text-decoration: underline;
+    color: white;
+}
+.randstad-callout .close-callout {
+    display: block;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    cursor: pointer;
+    z-index: 100;
+    pointer-events: auto;
+}
+.randstad-callout .callout-small-link {
+    font-size: 11px;
+}
+.randstad-callout .callout-button {
+    position: relative;
+    display: block;
+    border: 1px solid white;
+    font-size: 15px;
+    background: #00308f;
+    line-height: 60px;
+    padding-left: 15px;
+    text-decoration: none;
+}
+.randstad-callout .callout-button:after {
+    content: "";
+    display: block;
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 50px;
+    background-image: url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMC40MTQiIGhlaWdodD0iMjIuMzA1IiB2aWV3Qm94PSIwIDAgMTAuNDE0IDIyLjMwNSI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRkZGIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGQ9Ik0uMzc4LjMyN0w1LjA2NCA1Ljc0bDQuNjkgNS40MS00LjY5IDUuNDE0LTQuNjg2IDUuNDE0Ii8+PC9zdmc+);
+}
+.randstad-callout .callout-view {
+    min-height: 300px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    -webkit-transition: -webkit-transform 500ms ease;
+    -moz-transition: -moz-transform 500ms ease;
+    -ms-transition: -ms-transform 500ms ease;
+    -o-transition: -o-transform 500ms ease;
+    transition: transform 500ms ease;
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
+    pointer-events: auto;
+    padding: 35px 30px 30px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAS4AAAEuCAMAAAAHng9xAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABhQTFRFDzOIDDCFETWKEDSJDTGGDjKHCi6DEzeMvnSPowAAAjZJREFUeNrs3cEKgzAQBNAkavv/f9y7hymhLKn69hqWDA+9DaS94rzj9Ljb4m6Luz1fnEOPstBfUuPChQsXLly4cOHChQsXLly4cOHChQsXLly4cOHChQsXLly4cOF6IleeLZ7ui3bXXdzqvp+x6vtpZaFfuHDhwoULFy5cuHDhwoULFy5cuHDhwoULFy5cuHDhwoULFy5cuHCdl/NxHaY6HC5cuHDhwoULFy5cuHDhwoULFy5cuHDhwoULFy5cuHDhwoUL199y9Tgjzh53W9w94u6RL86ht7LQQ2FpJrR+Fy5cuHDhwoULFy5cuHDhwoULFy5cuHDhwoULFy5cuHDhwoXrGVxeoZp6hSpr1n176nC4cOHChQsXLly4cOHChQsXLly4cOHChQsXLly4cOHChQsXLly47sFVB6IOhwsXLly4cOHChQsXLly4cOHChQsXLly4cOHChQsXLly4cOHCdVGuUfZW1BZ391/emcqpW1norrA09bfhwoULFy5cuHDhwoULFy5cuHDhwoULFy5cuHDhwoULFy5cuHDhwnVOrbA0VViq+360B3HhwoULFy5cuHDhwoULFy5cuHDhwoULFy5cuHDhwoULFy5cuC7KlY/rMPW7cOHChQsXLly4cOHChQsXLly4cOHChQsXLly4cOHChQsXLly4cN2DK88WT/dFu+su1u+aCa0OhwsXLly4cOHChQsXLly4cOHChQsXLly4cOHChQsXLly4cOHChes8HwEGAFYHs3bGyZHuAAAAAElFTkSuQmCC);
+}
+.randstad-callout .callout-view.in {
+    -moz-transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+    -o-transform: translateX(0px);
+    -ms-transform: translateX(0px);
+    transform: translateX(0px);
+}
+.randstad-callout .view-intro {
+    z-index: 20;
+}
+.randstad-callout .view-form {
+    z-index: 10;
+}
+.randstad-callout .view-success {
+    padding-bottom: 50px;
+}
+.randstad-callout .view-form {
+    padding-top: 18px;
+}
+.randstad-callout .hs-form-field > label[for] {
+    display: block;
+    line-height: 1;
+    margin: 6px 0 7px;
+}
+.randstad-callout .hs-form-required {
+    display: none;
+}
+.randstad-callout .hs-error-msgs {
+    margin: 0 0 10px;
+    padding: 0;
+    list-style: none;
+}
+.randstad-callout .hs-error-msgs li label {
+    line-height: 1.2;
+    color: red;
+}
+.randstad-callout .hs-input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #eee;
+}
+.randstad-callout .agree-toc {
+    margin: 13px 0;
+    display: block;
+    line-height: 1;
+}
+.randstad-callout input[type=checkbox] {
+    vertical-align: middle;
+    padding: 0;
+    margin: 0;
+}
+.randstad-callout .hs_submit {
+    text-align: right;
+}
+.randstad-callout .hs-button {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    border: 0 none;
+    background: #ff9900;
+    color: white;
+    font-size: 15px;
+    line-height: 30px;
+    min-width: 120px;
+    text-transform: lowercase;
+}
