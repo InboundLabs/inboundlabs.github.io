@@ -113,8 +113,8 @@ if (!Date.now)
                 }
             },
             onFormReady: function($form) {
-                container.find("[name=page_url]").val(location.href.replace(/[?#].*$/, "")).change();
-                container.find("[name=page_url_raw]").val(location.href).change();
+                $form.find("[name=page_url]").val(location.href.replace(/[?#].*$/, "")).change();
+                $form.find("[name=page_url_raw]").val(location.href).change();
                 container.find(".agree-toc, .toc-error").insertBefore($form.find(".hs_submit"));
                 var agreeTocCheckBox = $form.find(".agree-toc input");
                 var tocError = $form.find(".toc-error");
