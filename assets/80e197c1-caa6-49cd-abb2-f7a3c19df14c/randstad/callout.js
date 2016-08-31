@@ -29,7 +29,8 @@ if (!Date.now)
     }
 }());
 
-(function($) {
+(function() {
+    var $;
     var wrapRaf = function(func) {
         var updateRequested = false;
         var handler = function(ts) {
@@ -79,7 +80,12 @@ if (!Date.now)
         </div>
     </div>
     */}).toString().match(/[^]*\/\*([^]*)\*\/\}$/)[1];
+    var haveJquery = !!window.jQuery;
     var init = function() {
+        $ = window.jQuery;
+        if (!haveJquery) {
+            $.noConflict();
+        }
         var CALLOUT_COOKIE = "randstad_callout_shown";
         $(calloutHtml).appendTo("body");
         var container = $(".randstad-callout");
@@ -212,18 +218,38 @@ if (!Date.now)
             init();
         }
     };
+    var loadScript = function(url, callback) {
+        // Adding the script tag to the head as suggested before
+        var ref = document.getElementsByTagName('script')[0];
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = url;
+        script.async = true;
+
+        // Then bind the event to the callback function.
+        // There are several events for cross browser compatibility.
+        var cbCalled = false;
+        var cbHandler = function() {
+            if ( !cbCalled && (!this.readyState || this.readyState == 'complete') ) {
+                cbCalled = true;
+                callback();
+            }
+        };
+        script.onreadystatechange = cbHandler;
+        script.onload = cbHandler;
+
+        // Fire the loading
+        ref.parentNode.insertBefore(script, ref);
+    }
     var loadScriptFor = function(url, cond) {
         if (cond) {
             return;
         }
         pendingComps++;
-        $.ajax({
-            url: url,
-            cache: true,
-            dataType: "script"
-        }).done(onCompLoad);
+        loadScript(url, onCompLoad);
     };
+    loadScriptFor("//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js", window.jQuery);
     loadScriptFor("//js.hsforms.net/forms/v2.js", window.hbspt && window.hbspt.forms);
     loadScriptFor("//cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.2/js.cookie.min.js", window.Cookies);
     onCompLoad();
-})(jQuery);
+})();
