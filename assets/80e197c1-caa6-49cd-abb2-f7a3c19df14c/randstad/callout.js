@@ -65,7 +65,7 @@ if (!Date.now)
             <div class="field hs-form-field combined-name">
                 <label><span>your name</span>
                 <div class="input">
-                    <input class="hs-input error invalid" placeholder="" required="" type="text" value="">
+                    <input class="hs-input" placeholder="" required="" type="text" value="">
                 </div>
                 <ul class="hs-error-msgs inputs-list" style="display:none;">
                     <li>
@@ -178,6 +178,7 @@ if (!Date.now)
                 var hookedButton = $("<a class='hs-button' href='#'/>").text(originalSubmitButton.val()).insertAfter(originalSubmitButton).click(function(e) {
                     e.preventDefault();
                     validateFriendEmail();
+                    combinedNameInput.trigger("change");
                     if (combinedNameInput.hasClass("invalid")) {
                         combinedNameErrorMsg.show();
                     }
