@@ -85,9 +85,10 @@ if (!Date.now)
         var container = $(".randstad-callout");
         var allViews = container.children(".callout-view");
         allViews.addClass("in");
+        container.children(".close-callout").remove().prependTo(allViews);
         var adjustContainerHeight = function() {
             var newHeight = 0;
-            allViews.filter(".in").each(function() {
+            allViews.each(function() {
                 var viewHeight = $(this).outerHeight();
                 if (viewHeight > newHeight) {
                     newHeight = viewHeight;
@@ -101,7 +102,6 @@ if (!Date.now)
         container.find(".jump-form").click(function(e) {
             e.preventDefault();
             allViews.filter(".view-intro").removeClass("in");
-            adjustContainerHeight();
         });
         var showCallout = function() {
             allViews.addClass("in");
@@ -117,7 +117,6 @@ if (!Date.now)
             target: "#randstad-callout-formhost",
             onFormSubmit: function() {
                 allViews.filter(".view-form").removeClass("in");
-                adjustContainerHeight();
                 if (window.ga) {
                     ga('send', 'event', 'Form', 'submission', 'Contest Recommended Jobs 2016');
                 }
