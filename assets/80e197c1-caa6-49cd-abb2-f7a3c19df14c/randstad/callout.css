@@ -15,6 +15,7 @@
     font: 14px/1.8 Tahoma, sans-serif;
     color: white;
     width: 315px;
+    max-width: 100vw;
     pointer-events: none;
 }
 .randstad-callout.in {
@@ -23,6 +24,17 @@
     -o-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
+}
+@media (max-width: 480px) {
+    .randstad-callout.in {
+        top: auto;
+        bottom: 0;
+        -moz-transform: none;
+        -webkit-transform: none;
+        -o-transform: none;
+        -ms-transform: none;
+        transform: none;
+    }
 }
 .randstad-callout .nowrap {
     white-space: nowrap;
