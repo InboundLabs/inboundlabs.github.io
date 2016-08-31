@@ -104,6 +104,7 @@ if (!Date.now)
             allViews.filter(".view-intro").removeClass("in");
         });
         var showCallout = function() {
+            container.hide();
             allViews.addClass("in");
             container.show();
             container.addClass("in");
