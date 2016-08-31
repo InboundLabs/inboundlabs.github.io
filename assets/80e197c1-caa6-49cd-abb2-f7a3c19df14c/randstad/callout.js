@@ -194,6 +194,10 @@ if (!Date.now)
                         showCallout();
                     }, 10000);
                 }
+                $(document).on("click", ".randstad-callout-trigger", function(e) {
+                    e.preventDefault();
+                    showCallout();
+                });
             }
         });
 
