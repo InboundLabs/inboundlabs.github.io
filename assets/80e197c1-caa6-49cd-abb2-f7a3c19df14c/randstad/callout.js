@@ -103,6 +103,7 @@ if (!Date.now)
             allViews.filter(".view-intro").removeClass("in");
         });
         var showCallout = function() {
+            allViews.addClass("in");
             container.show();
             container.addClass("in");
             adjustContainerHeight();
