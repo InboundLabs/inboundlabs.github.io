@@ -162,6 +162,7 @@
     vertical-align: middle;
     padding: 0;
     margin: 0;
+    position: static;
 }
 .randstad-callout .hs_submit {
     text-align: right;
