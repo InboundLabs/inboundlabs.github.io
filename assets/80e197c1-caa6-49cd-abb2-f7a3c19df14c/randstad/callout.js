@@ -178,7 +178,7 @@ if (!Date.now)
                 var hookedButton = $("<a class='hs-button' href='#'/>").text(originalSubmitButton.val()).insertAfter(originalSubmitButton).click(function(e) {
                     e.preventDefault();
                     validateFriendEmail();
-                    combinedNameInput.trigger("change");
+                    $form.find(".hs-input").trigger("change").trigger("blur");
                     if (combinedNameInput.hasClass("invalid")) {
                         combinedNameErrorMsg.show();
                     }
