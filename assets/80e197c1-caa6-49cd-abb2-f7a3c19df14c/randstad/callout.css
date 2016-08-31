@@ -152,6 +152,8 @@
     width: 100%;
     height: 40px;
     border: 1px solid #eee;
+    padding-left: 12px;
+    padding-right: 12px;
 }
 .randstad-callout .agree-toc {
     margin: 13px 0;
