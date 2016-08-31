@@ -46,7 +46,7 @@ if (!Date.now)
     };
 
     var calloutHtml = (function () {/*
-    <div class="randstad-callout">
+    <div class="randstad-callout" style="display: none">
         <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOC42MzgiIGhlaWdodD0iMTguNjQiIHZpZXdCb3g9IjAgMCAxOC42MzggMTguNjQiPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIuNTY5IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiPjxwYXRoIGQ9Ik0uMjg0LjI4NWgxNy45NDNWMTguMjNILjI4NHpNLjI4My4yODRsMTguMTU0IDE4LjE1NE0xOC4yMjguMjg0TC4yODMgMTguMjMiLz48L2c+PC9zdmc+" class="close-callout"/>
         <div class="callout-view view-intro">
             <h2>share this job to <strong>win a trip</strong> to a <strong>Formula One race</strong> in Texas</h2>
@@ -80,6 +80,7 @@ if (!Date.now)
     </div>
     */}).toString().match(/[^]*\/\*([^]*)\*\/\}$/)[1];
     var init = function() {
+        var CALLOUT_COOKIE = "randstad_callout_shown";
         $(calloutHtml).appendTo("body");
         var container = $(".randstad-callout");
         var allViews = container.children(".callout-view");
@@ -101,6 +102,11 @@ if (!Date.now)
             e.preventDefault();
             allViews.filter(".view-intro").removeClass("in");
         });
+        var showCallout = function() {
+            container.show();
+            container.addClass("in");
+            Cookies.set(CALLOUT_COOKIE, "1", {expires: 365});
+        };
         hbspt.forms.create({ 
             css: '',
             portalId: '409577',
@@ -182,9 +188,11 @@ if (!Date.now)
                     }
                 });
                 adjustContainerHeight();
-                setTimeout(function() {
-                    container.addClass("in");
-                }, 1000);
+                if (!Cookies.get(CALLOUT_COOKIE)) {
+                    setTimeout(function() {
+                        showCallout();
+                    }, 10000);
+                }
             }
         });
 
