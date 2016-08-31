@@ -15,7 +15,7 @@
     font: 14px/1.8 Tahoma, sans-serif;
     color: white;
     width: 315px;
-    max-width: 100vw;
+    max-width: 100%;
     pointer-events: none;
 }
 .randstad-callout.in {
