@@ -105,6 +105,7 @@ if (!Date.now)
         var showCallout = function() {
             container.show();
             container.addClass("in");
+            adjustContainerHeight();
             Cookies.set(CALLOUT_COOKIE, "1", {expires: 365});
         };
         hbspt.forms.create({ 
