@@ -138,6 +138,7 @@
     display: block;
     line-height: 1;
     margin: 6px 0 7px;
+    font-size: inherit;
 }
 .randstad-callout .hs-form-required {
     display: none;
