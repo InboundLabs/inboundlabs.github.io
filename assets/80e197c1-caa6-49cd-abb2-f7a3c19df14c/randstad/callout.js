@@ -131,6 +131,10 @@ if (!Date.now)
             onFormReady: function($form) {
                 $form.find("[name=page_url]").val(location.href.replace(/[?#].*$/, "")).change();
                 $form.find("[name=page_url_raw]").val(location.href).change();
+                $form.find("[name=callout_job_title]").val($(".snap-content h1").first().text() || "").change();
+                $form.find("[name=callout_job_location]").val($(".jbs-results-details dd span[id*=Location]").first().text() || "").change();
+                $form.find("[name=callout_date_posted]").val($(".jbs-results-details dd span[id*=DatePosted]").first().text() || "").change();
+                $form.find("[name=callout_job_type]").val($(".jbs-results-details dd span[id*=JobType]").first().text() || "").change();
                 container.find(".agree-toc, .toc-error").insertBefore($form.find(".hs_submit"));
                 var agreeTocCheckBox = $form.find(".agree-toc input");
                 var tocError = $form.find(".toc-error");
