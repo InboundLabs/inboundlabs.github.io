@@ -87,7 +87,7 @@ if (!Date.now)
             $.noConflict();
         }
         var CALLOUT_COOKIE = "randstad_callout_shown";
-        $(calloutHtml).appendTo("body");
+        $("<div/>").html(calloutHtml).children().appendTo("body");
         var container = $(".randstad-callout");
         var allViews = container.children(".callout-view");
         allViews.addClass("in");
