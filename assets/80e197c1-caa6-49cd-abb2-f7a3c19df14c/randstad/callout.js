@@ -63,7 +63,7 @@ if (!Date.now)
                 </li>
             </ul>
             <div class="field hs-form-field combined-name">
-                <label><span>your name</span></label>
+                <label for="-"><span>your name</span></label>
                 <div class="input">
                     <input class="hs-input" placeholder="" required="" type="text" value="">
                 </div>
