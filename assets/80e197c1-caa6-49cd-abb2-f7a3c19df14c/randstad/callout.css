@@ -131,11 +131,13 @@
 .randstad-callout .view-form {
     padding-top: 18px;
 }
+.randstad-callout label {
+    color: white;
+}
 .randstad-callout .hs-form-field > label[for] {
     display: block;
     line-height: 1;
     margin: 6px 0 7px;
-    color: white;
 }
 .randstad-callout .hs-form-required {
     display: none;
