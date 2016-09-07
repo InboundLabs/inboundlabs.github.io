@@ -210,6 +210,7 @@ if (!Date.now)
                 }
                 $(document).on("click", ".randstad-callout-trigger", function(e) {
                     e.preventDefault();
+                    e.stopImmediatePropagation();
                     showCallout();
                 });
             }
