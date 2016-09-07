@@ -212,6 +212,7 @@ if (!Date.now)
                     e.preventDefault();
                     e.stopImmediatePropagation();
                     showCallout();
+                    return false;
                 });
             }
         });
