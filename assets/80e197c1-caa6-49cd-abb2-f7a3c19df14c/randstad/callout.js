@@ -163,7 +163,7 @@ if (!Date.now)
                 var friendEmailInput = $form.find(".hs_friend_email input");
                 var friendEmailErrorMsg = $("<ul class='hs-error-msgs inputs-list'><li><label>Please enter a valid email address.</label></li></ul>");
                 var isFriendEmailValid = function() {
-                    return /^[0-9a-z]+@[0-9a-z]+\.[0-9a-z]+$/gi.test(friendEmailInput.val());
+                    return /^[^@]+@[^.]+\..+$/gi.test(friendEmailInput.val());
                 };
                 var validateFriendEmail = function() {
                     if (friendEmailInput.val() && !isFriendEmailValid()) {
