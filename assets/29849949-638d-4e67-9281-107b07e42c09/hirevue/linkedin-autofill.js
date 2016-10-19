@@ -1,4 +1,5 @@
 jQuery(document).ready(function() {
+    var form2Tag = $('script[type="IN/Form2"]');
     var token;
     var initForm = function() {
         var forms = $(".body-container form.hs-form[id], form.hs-form[id]").first();
