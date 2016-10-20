@@ -1,6 +1,7 @@
 jQuery(document).ready(function($) {
     $('head').append("<link href='https://fonts.googleapis.com/css?family=Lato:400,700,300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>");
     $('body').append("<link href='https://inboundlabs.github.io/assets/f6a20b2d-cf46-4888-8cc9-d8ca0d09fdd6/500co/app-form.css' rel='stylesheet' type='text/css'>");
+    $("body").append("");
     var validationError = false;
     var refreshAllMandatoryStatus = null;
     hbspt.forms.create({
