@@ -99,6 +99,7 @@ h3 {
     line-height: 1.6;
     letter-spacing: .4px;
     color: #aeaeae;
+    pointer-events: none;
 }
 
 #appb17-formhost .hs_submit {
