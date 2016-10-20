@@ -10,6 +10,7 @@ jQuery(document).ready(function($) {
         formId: window.__appFormGuid || '8740254f-ae5d-4c8a-80a7-d0b4c1c9e6e3',
         target: '#appb17-formhost',
         onFormReady: function($form) {
+            $form.find("select").parent().addClass("custom-select");
             var launchedMandatoryFieldNames = ["when_launched", "active_customers", "churn_rate", "customer_channels", "gross_margins", "revenue_last_6_months"];
             var launchedMandatoryFields = $form.find("input, textarea").filter(function() {
                 return launchedMandatoryFieldNames.indexOf($(this).attr("name")) > -1;
