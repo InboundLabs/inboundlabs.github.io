@@ -194,6 +194,10 @@ h3 {
 .custom-select {
 	position: relative;
 	display: block;
+    border: 1px solid #d2d2d2;
+    display: block;
+    padding-bottom: 0;
+    margin-bottom: 31px;
 }
 
 /* This is the native select, we're making everything but the text invisible so
