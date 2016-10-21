@@ -143,6 +143,7 @@ jQuery(document).ready(function($) {
                 validationError = true;
             }
             if (validationError) {
+                throw new Error("Terminating HubSpot form handler");
                 return;
             }
             var submittedMessage = $("<div class='submitted-message'>Thanks for submitting details about your startup to us. Someone on the team will contact you if there is a fit.</div>");
