@@ -136,7 +136,7 @@ jQuery(document).ready(function($) {
                         }
                     }, 10);
                 }
-                if ($form.find(".hs-input.invalid").length) {
+                if ($form.find(".hs-input.invalid").not(validationPlaceholder).length) {
                     validationPlaceholder.val("").change();
                     return false;
                 }
@@ -161,12 +161,11 @@ jQuery(document).ready(function($) {
             $form.attr("action", "about:blank");
             $form.attr("target", "appb17-target");
             refreshAllMandatoryStatus();
-            if ($form.find(".hs-input.invalid").length) {
+            if ($form.find(".hs-input.invalid").not(validationPlaceholder).length) {
                 validationError = true;
             }
             if (validationError) {
-                throw new Error("Terminating HubSpot form handler");
-                return;
+                console.log("Still have validation error!", $form.find(".hs-input.invalid").not(validationPlaceholder));
             }
             var submittedMessage = $("<div class='submitted-message'>Thanks for submitting details about your startup to us. Someone on the team will contact you if there is a fit.</div>");
             setTimeout(function() {
