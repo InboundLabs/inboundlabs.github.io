@@ -65,6 +65,9 @@ jQuery(document).ready(function($) {
             $form.find("input[name=product_launched]").on("click change", function() {
                 refreshAllMandatoryStatus(true);
             });
+            $form.find("input, select").on("click change blur", function() {
+                refreshAllMandatoryStatus(true);
+            });
             refreshAllMandatoryStatus(true);
             var requireds = $form.find('.hs-form-required, .launched-required');
             requireds.each(function(i, it) {
