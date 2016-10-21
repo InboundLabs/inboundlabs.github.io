@@ -10,6 +10,8 @@ jQuery(document).ready(function($) {
         formId: window.__appFormGuid || '8740254f-ae5d-4c8a-80a7-d0b4c1c9e6e3',
         target: '#appb17-formhost',
         onFormReady: function($form) {
+            var validationPlaceholder = $form.find("[name=validation_placeholder]");
+            validationPlaceholder.closest(".hs-form-field").hide();
             $form.find("select").parent().addClass("custom-select");
             var launchedMandatoryFieldNames = ["when_launched", "active_customers", "churn_rate", "customer_channels", "gross_margins", "revenue_last_6_months"];
             var launchedMandatoryFields = $form.find("input, textarea").filter(function() {
@@ -36,6 +38,7 @@ jQuery(document).ready(function($) {
                         var isInvalid = !$.trim(elem.val());
                         elem.toggleClass("invalid error", isInvalid);
                         if (isInvalid) {
+                            validationPlaceholder.val("").change();
                             if (!errorMsgs.find(".mandatory-error-msg").length) {
                                 mandatoryErrorMsgElem.clone().appendTo(errorMsgs);
                             }
@@ -54,6 +57,7 @@ jQuery(document).ready(function($) {
                 updateMandatoryStatus(this);
             });
             refreshAllMandatoryStatus = function(skipValidation) {
+                validationPlaceholder.val("1").change();
                 launchedMandatoryFields.each(function() {
                     updateMandatoryStatus(this, skipValidation);
                 });
@@ -68,6 +72,7 @@ jQuery(document).ready(function($) {
                 $(it).closest('.hs-form-field').find('.input').append('<span class="req-label">Required<\/span>');
             });
             $form.submit(function(e) {
+                validationPlaceholder.val("1").change();
                 validationError = false;
                 var scrollToElem = function(elem) {
                     elem.focus();
@@ -78,6 +83,7 @@ jQuery(document).ready(function($) {
                     }
                 };
                 var showFieldError = function(msg) {
+                    validationPlaceholder.val("").change();
                     noty({
                         text: msg,
                         type: "warning",
@@ -89,7 +95,7 @@ jQuery(document).ready(function($) {
                 var enteredDomain = $.trim($form.find("input[name=domain]").val());
                 if (!enteredDomain || enteredDomain.indexOf(" ") > -1 || enteredDomain.indexOf(".") === -1 || /^\d+$/.test(enteredDomain) || !/^(https?:\/\/[^\/]+\.[^\/]+\/?|[^\/]+\.[^\/]+)$/i.test(enteredDomain)) {
                     e.preventDefault();
-                    validationError = true;
+                    validationError = true;;
                     showFieldError("Please enter a correct domain name.")
                     scrollToElem($form.find("input[name=domain]"));
                     return;
@@ -103,6 +109,7 @@ jQuery(document).ready(function($) {
                     return;
                 }
                 if ($form.find(".hs-input.invalid").length) {
+                    validationPlaceholder.val("").change();
                     validationError = true;
                 }
                 setTimeout(function() {
