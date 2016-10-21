@@ -65,7 +65,7 @@ jQuery(document).ready(function($) {
             $form.find("input[name=product_launched]").on("click change", function() {
                 refreshAllMandatoryStatus(true);
             });
-            $form.find("input, select").on("click change blur", function() {
+            $form.find("input, select").on("focus blur", function() {
                 refreshAllMandatoryStatus(true);
             });
             refreshAllMandatoryStatus(true);
