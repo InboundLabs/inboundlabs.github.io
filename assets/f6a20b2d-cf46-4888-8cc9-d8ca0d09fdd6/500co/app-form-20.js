@@ -115,6 +115,31 @@ jQuery(document).ready(function($) {
                     validationPlaceholder.val("").change();
                     return false;
                 }
+                if (showError) {
+                    setTimeout(function() {
+                        var firstInvalidInput = $form.find(".invalid:visible").first();
+                        if (firstInvalidInput.length) {
+                            validationError = true;
+                            scrollToElem(firstInvalidInput);
+                            var errorMsg = $.trim(
+                                firstInvalidInput
+                                .closest(".hs-form-field")
+                                .find(".hs-error-msgs li")
+                                .filter(function() { return $(this).text().toLowerCase().indexOf("did you mean") === -1; })
+                                .last().text()
+                            );
+                            if (errorMsg) {
+                                if (firstInvalidInput.attr("name") === "email") {
+                                    var enteredEmail = $.trim(firstInvalidInput.val());
+                                    if (enteredEmail && enteredEmail.length < 10) {
+                                        errorMsg = "Please use a longer email address.";
+                                    }
+                                }
+                                showFieldError(errorMsg);
+                            }
+                        }
+                    }, 10);
+                }
                 return true;
             };
             $form.find("input, select").on("focus blur", function() {
@@ -125,29 +150,6 @@ jQuery(document).ready(function($) {
                 if (validationError) {
                     e.preventDefault();
                 }
-                setTimeout(function() {
-                    var firstInvalidInput = $form.find(".invalid:visible").first();
-                    if (firstInvalidInput.length) {
-                        validationError = true;
-                        scrollToElem(firstInvalidInput);
-                        var errorMsg = $.trim(
-                            firstInvalidInput
-                            .closest(".hs-form-field")
-                            .find(".hs-error-msgs li")
-                            .filter(function() { return $(this).text().toLowerCase().indexOf("did you mean") === -1; })
-                            .last().text()
-                        );
-                        if (errorMsg) {
-                            if (firstInvalidInput.attr("name") === "email") {
-                                var enteredEmail = $.trim(firstInvalidInput.val());
-                                if (enteredEmail && enteredEmail.length < 10) {
-                                    errorMsg = "Please use a longer email address.";
-                                }
-                            }
-                            showFieldError(errorMsg);
-                        }
-                    }
-                }, 10);
             });
             $(document).ready(function() {
                 setTimeout(function() {
