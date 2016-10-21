@@ -4,13 +4,14 @@ jQuery(document).ready(function($) {
     $("body").append("");
     var validationError = false;
     var refreshAllMandatoryStatus = null;
+    var validationPlaceholder = null;
     hbspt.forms.create({
         css: '',
         portalId: '698640',
         formId: window.__appFormGuid || '8740254f-ae5d-4c8a-80a7-d0b4c1c9e6e3',
         target: '#appb17-formhost',
         onFormReady: function($form) {
-            var validationPlaceholder = $form.find("[name=validation_placeholder]");
+            validationPlaceholder = $form.find("[name=validation_placeholder]");
             validationPlaceholder.closest(".hs-form-field").hide();
             $form.find("select").parent().addClass("custom-select");
             var launchedMandatoryFieldNames = ["when_launched", "active_customers", "churn_rate", "customer_channels", "gross_margins", "revenue_last_6_months"];
