@@ -159,8 +159,6 @@ jQuery(document).ready(function($) {
             });
         },
         onFormSubmit: function($form) {
-            $form.attr("action", "about:blank");
-            $form.attr("target", "appb17-target");
             refreshAllMandatoryStatus();
             if ($form.find(".hs-input.invalid").not(validationPlaceholder).length) {
                 validationError = true;
