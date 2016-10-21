@@ -67,28 +67,19 @@ jQuery(document).ready(function($) {
             $form.find("input[name=product_launched]").on("click change", function() {
                 refreshAllMandatoryStatus(true);
             });
-            $form.find("input, select").on("focus blur", function() {
-                refreshAllMandatoryStatus(true);
-            });
             refreshAllMandatoryStatus(true);
             var requireds = $form.find('.hs-form-required, .launched-required');
             requireds.each(function(i, it) {
                 $(it).closest('.hs-form-field').addClass('required-field');
                 $(it).closest('.hs-form-field').find('.input').append('<span class="req-label">Required<\/span>');
             });
-            $form.submit(function(e) {
+            var validateAll = function(showError) {
                 validationPlaceholder.val("1").change();
-                validationError = false;
-                var scrollToElem = function(elem) {
-                    elem.focus();
-                    var targetTop = Math.max(0, elem.offset().top - 100);
-                    var viewport = $("html");
-                    if (viewport.scrollTop() > targetTop) {
-                        viewport.scrollTop(targetTop);
-                    }
-                };
                 var showFieldError = function(msg) {
                     validationPlaceholder.val("").change();
+                    if (!showError) {
+                        return;
+                    }
                     noty({
                         text: msg,
                         type: "warning",
@@ -96,26 +87,43 @@ jQuery(document).ready(function($) {
                         timeout: 5000
                     });
                 };
+                var scrollToElem = function(elem) {
+                    if (!showError) {
+                        return;
+                    }
+                    elem.focus();
+                    var targetTop = Math.max(0, elem.offset().top - 100);
+                    var viewport = $("html");
+                    if (viewport.scrollTop() > targetTop) {
+                        viewport.scrollTop(targetTop);
+                    }
+                };
                 refreshAllMandatoryStatus();
                 var enteredDomain = $.trim($form.find("input[name=domain]").val());
                 if (!enteredDomain || enteredDomain.indexOf(" ") > -1 || enteredDomain.indexOf(".") === -1 || /^\d+$/.test(enteredDomain) || !/^(https?:\/\/[^\/]+\.[^\/]+\/?|[^\/]+\.[^\/]+)$/i.test(enteredDomain)) {
-                    e.preventDefault();
-                    validationError = true;;
                     showFieldError("Please enter a correct domain name.")
                     scrollToElem($form.find("input[name=domain]"));
-                    return;
+                    return false;
                 }
                 var enteredAngelListLink = $.trim($form.find("input[name=angellist_link]").val());
-                if (enteredAngelListLink && !/https?:\/\/(www\.)?angel\.co\/.*$/i.test(enteredAngelListLink)) {
-                    e.preventDefault();
-                    validationError = true;
+                if (enteredAngelListLink && !/^(https?:\/\/)?(www\.)?angel\.co\/.*$/i.test(enteredAngelListLink)) {
                     showFieldError("Please enter a correct AngelList link.")
                     scrollToElem($form.find("input[name=angellist_link]"));
-                    return;
+                    return false;
                 }
                 if ($form.find(".hs-input.invalid").length) {
                     validationPlaceholder.val("").change();
-                    validationError = true;
+                    return false;
+                }
+                return true;
+            };
+            $form.find("input, select").on("focus blur", function() {
+                validateAll();
+            });
+            $form.submit(function(e) {
+                validationError = !validateAll(true);
+                if (validationError) {
+                    e.preventDefault();
                 }
                 setTimeout(function() {
                     var firstInvalidInput = $form.find(".invalid:visible").first();
