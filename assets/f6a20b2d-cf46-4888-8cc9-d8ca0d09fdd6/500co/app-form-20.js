@@ -33,12 +33,12 @@ jQuery(document).ready(function($) {
                 if (!errorMsgs.length) {
                     errorMsgs = $(decodeURIComponent("%3Cul%2F%3E")).addClass("hs-error-msgs inputs-list").appendTo(elem.closest(".hs-form-field"));
                 }
+                var isInvalid = !$.trim(elem.val());
+                validationPlaceholder.val("").change();
                 if (isMandatory) {
                     if (!skipValidation) {
-                        var isInvalid = !$.trim(elem.val());
                         elem.toggleClass("invalid error", isInvalid);
                         if (isInvalid) {
-                            validationPlaceholder.val("").change();
                             if (!errorMsgs.find(".mandatory-error-msg").length) {
                                 mandatoryErrorMsgElem.clone().appendTo(errorMsgs);
                             }
