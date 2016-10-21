@@ -111,10 +111,6 @@ jQuery(document).ready(function($) {
                     scrollToElem($form.find("input[name=angellist_link]"));
                     return false;
                 }
-                if ($form.find(".hs-input.invalid").length) {
-                    validationPlaceholder.val("").change();
-                    return false;
-                }
                 if (showError) {
                     setTimeout(function() {
                         var firstInvalidInput = $form.find(".invalid:visible").first();
@@ -139,6 +135,10 @@ jQuery(document).ready(function($) {
                             }
                         }
                     }, 10);
+                }
+                if ($form.find(".hs-input.invalid").length) {
+                    validationPlaceholder.val("").change();
+                    return false;
                 }
                 return true;
             };
