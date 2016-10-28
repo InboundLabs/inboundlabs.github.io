@@ -11,9 +11,16 @@ jQuery(document).ready(function() {
         $(window).off("load.liautofill");
         form2Tag.attr("data-form", forms.attr("id"));
         $.ajax({
-        	url: "https://www.linkedin.com/autofill/js/autofill.js",
+            url: "https://www.linkedin.com/autofill/js/autofill.js",
             dataType: "script",
             cache: true
+        });
+        window.addEventListener('message', function(event) {
+            if (event.data && event.data.indexOf("formData") > -1) {
+                setTimeout(function() {
+                    forms.find(".hs-input").change();
+                }, 10);
+            }
         });
     };
     if (form2Tag.length) {
