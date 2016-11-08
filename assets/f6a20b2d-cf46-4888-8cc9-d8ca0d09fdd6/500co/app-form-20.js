@@ -34,7 +34,7 @@ jQuery(document).ready(function($) {
                     errorMsgs = $(decodeURIComponent("%3Cul%2F%3E")).addClass("hs-error-msgs inputs-list").appendTo(elem.closest(".hs-form-field"));
                 }
                 var isInvalid = !$.trim(elem.val());
-                if (isInvalid) {
+                if (isInvalid && isMandatory) {
                     validationPlaceholder.val("").change();
                 }
                 if (isMandatory) {
