@@ -10,6 +10,7 @@ jQuery(document).ready(function($) {
         formId: window.__appFormGuid || '8740254f-ae5d-4c8a-80a7-d0b4c1c9e6e3',
         target: '#appb17-formhost',
         onFormReady: function($form) {
+            $form.find("[name=would_you_like_to_apply_to_a_specific_track_] option[value*=GM]").hide();
             validationPlaceholder = $form.find("[name=validation_placeholder]");
             validationPlaceholder.closest(".hs-form-field").hide();
             $form.find("select").parent().addClass("custom-select");
