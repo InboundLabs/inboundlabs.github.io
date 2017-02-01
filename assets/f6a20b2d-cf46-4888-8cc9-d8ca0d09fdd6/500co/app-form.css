@@ -20,6 +20,18 @@ h3 {
     width: 33%;
     float: left;
 }
+@media (max-width: 480px) {
+    .hs_verticals li {
+            width: 50%;
+    }
+
+}
+@media (max-width: 240px) {
+    .hs_verticals li {
+            width: 100%;
+        }
+
+}
 
 .submitted-message {
     display: none;
