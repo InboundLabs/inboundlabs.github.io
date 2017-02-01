@@ -193,6 +193,7 @@ jQuery(document).ready(function($) {
             $form.attr("target", token);
             $form.attr("action", TARGET_URL + "?submissionToken=" + token);
             var onSubmissionFail = function(internalMessage, extra) {
+                console.log('fail', internalMessage, extra);
                 noty({
                     text: "Sorry, we are unable to submit your form at this moment, please try again later.",
                     type: "error",
