@@ -221,7 +221,7 @@ jQuery(document).ready(function($) {
                 }).pipe(function(resp) {
                     if (resp.success) {
                         noty({
-                            text: window.__appFormSuccessMessage || "Thank you for applying to Batch 20. We will process your application and get back to you!",
+                            text: window.__appFormSuccessMessage || "Submission recieved!",
                             type: "success",
                             killer: true
                         });
