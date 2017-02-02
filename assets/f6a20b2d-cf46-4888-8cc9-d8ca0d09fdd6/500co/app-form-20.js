@@ -13,7 +13,7 @@ jQuery(document).ready(function($) {
             validationPlaceholder = $form.find("[name=validation_placeholder]");
             validationPlaceholder.closest(".hs-form-field").hide();
             $form.find("select").parent().addClass("custom-select");
-            var launchedMandatoryFieldNames = ["when_launched", "active_customers", "churn_rate", "customer_channels", "gross_margins", "revenue_last_6_months"];
+            var launchedMandatoryFieldNames = [];//"when_launched", "active_customers", "churn_rate", "customer_channels", "gross_margins", "revenue_last_6_months"];
             var launchedMandatoryFields = $form.find("input, textarea").filter(function() {
                 return launchedMandatoryFieldNames.indexOf($(this).attr("name")) > -1;
             });
