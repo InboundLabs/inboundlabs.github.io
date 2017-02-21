@@ -16,6 +16,9 @@ jQuery(document).ready(function() {
     if (/\bwistia\.com\b/g.test(href)) {
       addDefaultParam("embedType", "async_popover");
       addDefaultParam("videoFoam", "true");
+    } else if (/\byoutube\b/g.test(href) || /\byoutu\.be\b/g.test(href)) {
+      addDefaultParam("rel", "0");
+      addDefaultParam("showinfo", "0");
     }
     o.attr("href", href);
   }).oembed();
