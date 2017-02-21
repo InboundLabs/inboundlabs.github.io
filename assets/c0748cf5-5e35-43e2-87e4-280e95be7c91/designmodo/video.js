@@ -6,7 +6,7 @@ jQuery(document).ready(function() {
     var paramCh = (href.indexOf("?") ? "&" : "?");
     var addDefaultParam = function(key, value) {
       var re = new RegExp("\\?(.*&)?" + key + "=");
-      if (re.test(key)) {
+      if (re.test(href)) {
         return;
       }
       href += paramCh;
