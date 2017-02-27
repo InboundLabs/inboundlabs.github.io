@@ -35,6 +35,13 @@ jQuery(document).ready(function() {
         addDefaultParam("autoplay", "1");
         addDefaultParam("loop", "1");
       }
+    } else if (/\vimeo\b/g.test(href)) {
+      addDefaultParam("title", "false");
+      if (bgMode) {
+        addDefaultParam("autopause", "false");
+        addDefaultParam("autoplay", "true");
+        addDefaultParam("loop", "true");
+      }
     }
     o.attr("href", href);
   }).oembed();
