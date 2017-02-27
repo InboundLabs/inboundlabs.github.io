@@ -2,6 +2,7 @@
 jQuery(document).ready(function() {
   $("a.oembed").each(function() {
     var o = $(this);
+    var bgMode = o.hasClass("oembed-bg-video");
     var href = o.attr("href");
     var paramCh = (href.indexOf("?") ? "&" : "?");
     var addDefaultParam = function(key, value) {
@@ -14,8 +15,18 @@ jQuery(document).ready(function() {
       href += key + "=" + value;
     };
     if (/\bwistia\.com\b/g.test(href)) {
-      addDefaultParam("embedType", "async_popover");
-      addDefaultParam("videoFoam", "true");
+      if (bgMode) {
+        addDefaultParam("embedType", "async");
+        addDefaultParam("videoFoam", "false");
+        addDefaultParam("playbar", "false");
+        addDefaultParam("controlsVisibleOnLoad", "false");
+        addDefaultParam("autoPlay", "true");
+        addDefaultParam("endVideoBehavior", "loop");
+        addDefaultParam("volume", "0");
+      } else {
+        addDefaultParam("embedType", "async_popover");
+        addDefaultParam("videoFoam", "true");
+      }
     } else if (/\byoutube\b/g.test(href) || /\byoutu\.be\b/g.test(href)) {
       addDefaultParam("rel", "0");
       addDefaultParam("showinfo", "0");
