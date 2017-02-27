@@ -4,7 +4,7 @@ jQuery(document).ready(function() {
     var o = $(this);
     var bgMode = o.hasClass("oembed-bg-video");
     var href = o.attr("href");
-    var paramCh = (href.indexOf("?") ? "&" : "?");
+    var paramCh = (href.indexOf("?") > -1 ? "&" : "?");
     var addDefaultParam = function(key, value) {
       var re = new RegExp("\\?(.*&)?" + key + "=");
       if (re.test(href)) {
