@@ -14,6 +14,7 @@ jQuery(document).ready(function() {
       paramCh = "&";
       href += key + "=" + value;
     };
+    var onBeforeEmbed = function() {};
     if (/\bwistia\.com\b/g.test(href)) {
       if (bgMode) {
         addDefaultParam("embedType", "async");
@@ -38,11 +39,17 @@ jQuery(document).ready(function() {
     } else if (/\bvimeo\b/g.test(href)) {
       addDefaultParam("title", "false");
       if (bgMode) {
+        onBeforeEmbed = function(_, data) {
+          console.log(data.code);
+        };
         addDefaultParam("autopause", "false");
         addDefaultParam("autoplay", "true");
         addDefaultParam("loop", "true");
       }
     }
     o.attr("href", href);
-  }).oembed();
+    o.oembed({
+      beforeEmbed: onBeforeEmbed
+    });
+  })
 });
