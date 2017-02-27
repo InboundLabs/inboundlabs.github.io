@@ -48,7 +48,7 @@ jQuery(document).ready(function() {
       }
     }
     o.attr("href", href);
-    o.oembed({
+    o.oembed(href, {
       beforeEmbed: onBeforeEmbed
     });
   })
