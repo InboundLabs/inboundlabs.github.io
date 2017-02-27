@@ -39,8 +39,8 @@ jQuery(document).ready(function() {
     } else if (/\bvimeo\b/g.test(href)) {
       addDefaultParam("title", "false");
       if (bgMode) {
-        onBeforeEmbed = function(_, data) {
-          console.log(data.code);
+        onBeforeEmbed = function(container, data) {
+          console.log(container, data);
         };
         addDefaultParam("autopause", "false");
         addDefaultParam("autoplay", "true");
