@@ -30,6 +30,11 @@ jQuery(document).ready(function() {
     } else if (/\byoutube\b/g.test(href) || /\byoutu\.be\b/g.test(href)) {
       addDefaultParam("rel", "0");
       addDefaultParam("showinfo", "0");
+      if (bgMode) {
+        addDefaultParam("controls", "0");
+        addDefaultParam("autoplay", "1");
+        addDefaultParam("loop", "1");
+      }
     }
     o.attr("href", href);
   }).oembed();
