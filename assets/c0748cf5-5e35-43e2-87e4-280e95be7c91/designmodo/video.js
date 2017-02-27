@@ -41,7 +41,7 @@ jQuery(document).ready(function() {
       if (bgMode) {
         onBeforeEmbed = function(container, data) {
           if (container && container.code) {
-            container.code = container.code.replace(/\bvimeo.com\/[^'"]+/g, "$0?autopause=0&autoplay=1&loop=1&title=0");
+            container.code = container.code.replace(/\bvimeo.com\/[^'"]+/g, "$&?autopause=0&autoplay=1&loop=1&title=0");
           }
         };
         addDefaultParam("autopause", "false");
