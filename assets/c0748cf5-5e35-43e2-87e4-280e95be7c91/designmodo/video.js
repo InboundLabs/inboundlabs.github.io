@@ -35,7 +35,7 @@ jQuery(document).ready(function() {
         addDefaultParam("autoplay", "1");
         addDefaultParam("loop", "1");
       }
-    } else if (/\vimeo\b/g.test(href)) {
+    } else if (/\bvimeo\b/g.test(href)) {
       addDefaultParam("title", "false");
       if (bgMode) {
         addDefaultParam("autopause", "false");
