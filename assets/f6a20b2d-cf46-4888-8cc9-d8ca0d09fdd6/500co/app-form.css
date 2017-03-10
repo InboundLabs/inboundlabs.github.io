@@ -63,6 +63,7 @@ h3 {
 
 #appb17-formhost input {
     max-width: none;
+    box-sizing: border-box;
 }
 
 #appb17-formhost form>div:first-child .input {
@@ -74,6 +75,7 @@ h3 {
 }
 
 #appb17-formhost textarea {
+    max-width: none;
     min-height: 118px;
 }
 
@@ -160,6 +162,7 @@ h3 {
 
 #appb17-formhost .hs-form-radio-display {
     overflow: hidden;
+    display: inline-block;
 }
 
 #appb17-formhost .hs-form-radio-display [type=radio] {
