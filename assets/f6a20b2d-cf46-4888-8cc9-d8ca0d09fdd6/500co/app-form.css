@@ -61,6 +61,10 @@ h3 {
     max-width: none;
 }
 
+#appb17-formhost input {
+    max-width: none;
+}
+
 #appb17-formhost form>div:first-child .input {
     padding-bottom: 35px;
 }
