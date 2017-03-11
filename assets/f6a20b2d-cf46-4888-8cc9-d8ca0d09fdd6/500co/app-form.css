@@ -209,6 +209,11 @@ h3 {
     margin: 0;
     list-style: none;
 }
+#appb17-formhost ul.inputs-list li label {
+    font-family: inherit;
+    line-height: inherit;
+    font-size: inherit;
+}
 #appb17-formhost ul.inputs-list li input[type=checkbox] {
     margin-right: 0.5em;
 }
