@@ -62,7 +62,7 @@ var startAuth = function(editorUrl) {
     });
 };
 $(document).ready(function() {
-    $("a[href*='/brix-editor']").one(function(e) {
+    $("a[href*='/brix-editor']").one("click", function(e) {
         e.preventDefault();
         var href = $(this).attr("href");
         $(popupHtml).appendTo("body");
