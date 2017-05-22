@@ -68,7 +68,7 @@ $(document).ready(function() {
         $(popupHtml).appendTo("body");
         setTimeout(function() {
             $("#authwindow").removeClass("hidden");
-            $("authContinue").click(function(e) {
+            $("#authContinue").click(function(e) {
                 e.preventDefault();
                 startAuth(href);
             });
