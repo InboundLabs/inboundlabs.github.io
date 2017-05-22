@@ -1,0 +1,473 @@
+h1 {
+    font-size: 35px;
+    color: #1b1f23;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 50px;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -o-transition: 0.25s;
+    transition: 0.25s;
+}
+.window .upperSide .sharetext {
+    margin-top: 15px;
+    font-size: 16px;
+}
+.window .upperSide .sharetext span,
+.window .upperSide .sharetext a,
+.window a {
+    color: #202224;
+    text-decoration: none;
+    border-bottom: 1px solid #ccc;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -o-transition: 0.25s;
+    transition: 0.25s;
+    cursor: pointer;
+}
+.window a:hover,
+.window .upperSide .sharetext span:hover,
+.window .upperSide .sharetext a:hover,
+.window .upperSide a:hover {
+    color: #696f6f;
+    border-bottom: 1px solid rgba(204, 204, 204, 0)
+}
+/* Windows */
+
+.overlay {
+    padding: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 3000;
+    top: 0;
+    cursor: pointer;
+    overflow: scroll;
+    background: rgba(0, 0, 0, 0.6);
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    text-align: center;
+    display: table;
+    line-height: 30px;
+    -webkit-animation: fadeIn 0.5s;
+    -moz-animation: fadeIn 0.5s;
+    -ms-animation: fadeIn 0.5s;
+    -o-animation: fadeIn 0.5s;
+    animation: fadeIn 0.5s;
+}
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-moz-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-o-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-ms-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.overlay.hidden {
+    display: none;
+}
+.overlay > div {
+    display: table-cell;
+    vertical-align: middle;
+}
+.window {
+    width: 554px;
+    text-align: left;
+    margin: 0 auto;
+    overflow: hidden;
+    cursor: default;
+    color: #696f6f;
+    background: #F7F6F5;
+    border-radius: 1px;
+}
+.window.slideDown {
+    -webkit-animation: slideDown 0.5s;
+    -moz-animation: slideDown 0.5s;
+    -ms-animation: slideDown 0.5s;
+    -o-animation: slideDown 0.5s;
+    animation: slideDown 0.5s;
+}
+@-webkit-keyframes slideDown {
+    0% {
+        -webkit-transform: translateY(50px) scale(0.95);
+        opacity: 0
+    }
+    100% {
+        -webkit-transform: translateY(0%) scale(1);
+        opacity: 1
+    }
+}
+@-moz-keyframes slideDown {
+    0% {
+        -moz-transform: translateY(50px) scale(0.95);
+    }
+    100% {
+        -moz-transform: translateY(0%) scale(1);
+    }
+}
+@-ms-keyframes slideDown {
+    0% {
+        -ms-transform: translateY(50px) scale(0.95);
+    }
+    100% {
+        -ms-transform: translateY(0%) scale(1);
+    }
+}
+@-o-keyframes slideDown {
+    0% {
+        -o-transform: translateY(50px) scale(0.95);
+    }
+    100% {
+        -o-transform: translateY(0%) scale(1);
+    }
+}
+@keyframes slideDown {
+    0% {
+        transform: translateY(50px) scale(0.95);
+    }
+    100% {
+        transform: translateY(0%) scale(1);
+    }
+}
+.promo .window {
+    width: 780px
+}
+.overlay .close {
+    background: url('img/close-hovered.svg') no-repeat center;
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    opacity: 0.3;
+    cursor: pointer;
+    display: block;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0);
+    -webkit-transition: 0.5s cubic-bezier(.04, 1.34, .27, .92);
+    -moz-transition: 0.5s cubic-bezier(.27, 1.64, .32, .95);
+    -ms-transition: 0.5s cubic-bezier(.27, 1.64, .32, .95);
+    -o-transition: 0.5s cubic-bezier(.27, 1.64, .32, .95);
+    transition: 0.5s cubic-bezier(.04, 1.34, .27, .92);
+}
+.overlay .close:hover {
+    opacity: 1;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    transform: rotate(90deg);
+    border-radius: 50%;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+.window h1 {
+    font-size: 32px;
+    color: #202224;
+    margin: 5px 0 22px;
+}
+.window .loginform h1 {
+    text-align: center;
+    margin: 0 0 30px;
+}
+.window p {
+    font-size: 18px;
+}
+.window > div {
+    -webkit-transition: 0.75s cubic-bezier(.39, 1.31, .28, 1);
+    -moz-transition: 0.75s cubic-bezier(.39, 1.31, .11, 1);
+    -ms-transition: 0.75s cubic-bezier(.39, 1.31, .11, 1);
+    -o-transition: 0.75s cubic-bezier(.39, 1.31, .11, 1);
+    transition: 0.75s cubic-bezier(.39, 1.31, .28, 1);
+}
+.window .upperSide {
+    padding: 45px;
+}
+.window .loginform {
+    padding: 45px;
+    height: 410px;
+}
+.window .promo {
+    padding: 75px 45px;
+    overflow: hidden;
+    background-size: cover;
+    height: 345px;
+    text-align: center;
+}
+.window .promo .videobg {
+    top: -320px;
+    left: -129px;
+    bottom: 0px;
+    right: 0px;
+    position: relative;
+    width: 745px;
+    height: 450px;
+    background: url(img/novideo.jpg) no-repeat center;
+    background-size: cover;
+}
+.hidden .window .promo .videobg {
+    display: none;
+}
+.window .promo h2 {
+    font-size: 34px;
+    color: #fff;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+.window .promo a {
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+.window .promo a.button:hover {
+    background: #27ae60;
+    border: 2px solid #27ae60;
+    color: #fff!important;
+}
+.window .promo .button {
+    margin: 34px 0 0;
+}
+.window .promo p {
+    color: #fff;
+    font-weight: 100;
+}
+.window .upperSide ul {
+    margin-top: 44px;
+}
+.window .upperSide li {
+    display: inline-block;
+    width: 33%;
+    text-align: center;
+    color: #202224;
+    font-size: 19px;
+    font-weight: 700;
+}
+.window .upperSide li img {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+.window .downSide {
+    text-align: center;
+    padding: 20px 0;
+    background: #fff;
+}
+.window .downSide a {
+    background: #202224;
+    color: #fff;
+}
+.window input {
+    display: block;
+    margin-top: 20px;
+    width: 100%;
+    font-size: 26px;
+    padding: 9px 11px;
+    outline: none;
+    border: none;
+    box-shadow: inset 0 2px 0px rgba(32, 34, 36, 0.13);
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+.window .collapsed {
+    height: 100px;
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+#password {
+    background-color: #fff;
+    background-image: url(img/lock.svg);
+    background-repeat: no-repeat;
+    background-position: 97% center;
+}
+.window input::-webkit-input-placeholder {
+    font-size: 16px;
+    padding-top: 6px;
+}
+.window input::-moz-placeholder {
+    font-size: 16px;
+    padding-top: 6px;
+}
+.window input:-ms-input-placeholder {
+    font-size: 16px;
+    padding-top: 6px;
+}
+.window input:-moz-placeholder {
+    font-size: 16px;
+    padding-top: 6px;
+}
+/* Window style part 2 -design-mode-generator-extra-*/
+
+.mode-install-all-modules .toggle,
+.mode-install-all-modules .install-container,
+.mode-install-all-modules .slack-invite-container,
+.mode-install-all-modules #blocksHolder,
+.mode-install-all-modules #menu {
+    display: none !important;
+}
+html:not(.mode-install-all-modules) .message-standalone-module-installer {
+    display: none;
+}
+.mode-install-all-modules .message-normal {
+    display: none;
+}
+.hidden {
+    display: block;
+    visibility: initial;
+}
+.btn {
+    display: block;
+    max-width: 157px;
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+    margin: 0 auto;
+    padding: 13px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.9px;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 13px;
+    color: #ffffff;
+    cursor: pointer;
+}
+.btn-orange,
+.window .downSide .button.orange {
+    background-color: #e85338;
+}
+.window .btn-orange,
+.button.orange {
+    color: #ffffff;
+}
+#authContinue {
+    position: relative;
+    max-width: 187px;
+}
+.btn-with-sprocket:before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 33px;
+    height: 30px;
+    background-image: url('https://cdn2.hubspot.net/hubfs/346178/designmodo/common-files/img/sprocket_white_80.png');
+    background-size: 33px 30px;
+    background-repeat: no-repeat;
+}
+.window .downSide .close-window {
+    background: #d0021b;
+}
+/* Auth Window */
+
+#authcompletewindow .window,
+#authwindow .window {
+    text-align: center;
+}
+#authcompletewindow .window .btn,
+#authwindow .window .btn {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#authcompletewindow .window img,
+#authwindow .window img,
+.popup-brix-logo {
+    margin-bottom: 20px;
+}
+.popup-brix-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#authwindow .window a {
+    text-decoration: underline;
+    color: #696f6f;
+    border-bottom: 0;
+}
+#authwindow .window a:hover {
+    text-decoration: underline;
+    border-bottom: 0;
+}
+#authwindow .window .upperSide > p {
+    line-height: 24px;
+}
+#authcompletewindow .btn-tutorial-play {
+    border-bottom: none;
+    display: block;
+    margin-top: 10px;
+}
+#authcompletewindow .btn-tutorial-play:focus {
+    outline: none;
+}
+#authcompletewindow .btn-tutorial-play img {
+    margin-bottom: 0;
+}
+.authNoHubDb-container,
+.signin-checkbox {
+    text-align: left;
+}
+.authNoHubDb-container p,
+.signin-checkbox p {
+    font-size: 15px;
+    line-height: 22px;
+}
+.authNoHubDb-container {
+    margin-bottom: 20px;
+}
+.signin-checkbox input[type="checkbox"] {
+    vertical-align: top;
+    margin: 4px 7px 0 0;
+}
+.window input[type=checkbox] {
+    display: inline-block;
+    width: auto;
+}
+
+@media (max-width: 767px) {  
+   .window{
+        max-width: 95vw;
+   }
+   .window .upperSide {
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow-y: scroll;
+        height:500px;
+    }
+}
