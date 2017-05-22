@@ -1,7 +1,7 @@
 (function() {
   
 
-var popupHtml = '<div id="authwindow" class="overlay modal auth">'+
+var popupHtml = '<div id="authwindow" class="overlay modal auth hidden">'+
 '    <div>'+
 '        <div class="window slideDown">'+
 '            <div class="upperSide">'+
@@ -24,8 +24,56 @@ var popupHtml = '<div id="authwindow" class="overlay modal auth">'+
 '        </div>'+
 '    </div>'+
 '</div>';
-	
+
+var DMI_BASE = "https://ttwh15z7dc.execute-api.us-east-1.amazonaws.com/prod/dmi";
+var buildHiddenForm = function(formId, extraOptions, onFormReady) {
+    var formToken = "ft" + String(Math.random()).slice(2);
+    var formContainer = $("<div/>").attr("id", "ct" + formToken).hide().appendTo("body");
+    var targetFrame = $("<iframe/>").attr("name", "target" + formToken).hide().appendTo("body");
+    hbspt.forms.create($.extend({
+        portalId: '346178',
+        formId: formId,
+        target: "#" + formContainer.attr("id"),
+        formInstanceId: formToken,
+        onFormReady: function($form) {
+            if (!extraOptions.redirectUrl) {
+                $form.attr("target", targetFrame.attr("name"));
+            }
+            return onFormReady.apply(this, arguments);
+        }
+    }, extraOptions));
+};
+function urlSafeBase64Encode(input) {
+    return window.btoa(unescape(encodeURIComponent(input))).replace(/\+/g, '-') // Convert '+' to '-'
+        .replace(/\//g, '_') // Convert '/' to '_'
+        .replace(/=+$/, ''); // Remove ending '='
+}
+var startAuth = function(editorUrl) {
+    removeAuthUrlParams();
+    var redirectUrl = DMI_BASE + "/run/" + urlSafeBase64Encode(JSON.stringify({
+        authRedirect: editorUrl
+    }));
+    buildHiddenForm('0737253c-3c80-40cf-9179-f33b69dff350', {
+        redirectUrl: redirectUrl
+    }, function($form) {
+        $form.attr("target", "_top");
+        $form.find("[name=brix_is_trial_portal]").val($("#is-trial-portal:checked").length ? "Yes" : "No").change();
+        $form.submit();
+    });
+};
 $(document).ready(function() {
+    $("a[href*='/brix-editor']").click(function(e) {
+        e.preventDefault();
+        var href = $(this).attr("href");
+        $(popupHtml).appendTo("body");
+        setTimeout(function() {
+            $("#authWindow").removeClasss("hidden");
+            $("authContinue").click(function(e) {
+                e.preventDefault();
+                startAuth(href);
+            });
+        }, 10);
+    });
 });
 
 !function() {
