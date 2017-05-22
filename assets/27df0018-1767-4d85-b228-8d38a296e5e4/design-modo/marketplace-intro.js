@@ -49,7 +49,6 @@ function urlSafeBase64Encode(input) {
         .replace(/=+$/, ''); // Remove ending '='
 }
 var startAuth = function(editorUrl) {
-    removeAuthUrlParams();
     var redirectUrl = DMI_BASE + "/run/" + urlSafeBase64Encode(JSON.stringify({
         authRedirect: editorUrl
     }));
