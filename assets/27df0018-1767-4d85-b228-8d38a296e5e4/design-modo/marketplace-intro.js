@@ -55,7 +55,7 @@ var startAuth = function(editorUrl) {
     window.open(redirectUrl, "_blank");
 };
 $(document).ready(function() {
-    $("a[href*='/brix-editor']").closest(".hs_cos_wrapper").attr("id", "");.one("click", function(e) {
+    $("a[href*='/brix-editor']").closest(".hs_cos_wrapper").attr("id", "").one("click", function(e) {
         e.preventDefault();
         var href = $(this).attr("href");
         $(popupHtml).appendTo("body");
