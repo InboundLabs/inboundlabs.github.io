@@ -7,7 +7,7 @@ var popupHtml = '<div id="authwindow" class="overlay modal auth hidden">'+
 '            <div class="upperSide">'+
 '                <img src="https://cdn2.hubspot.net/hubfs/346178/BRiX_LP_Assets/brix-logo-desktop.png" alt="BRiX Logo">'+
 '                <h1>Welcome to The Startup Framework!</h1>'+
-'                <p class="message-normal">Our BRIX editor allows you to build new HubSpot pages with simple drag & drop. You can share the page with other team members for review by copying the URL. Once you are ready simply hit the ?install? button and your page will be deployed in your HubSpot portal.</p>'+
+'                <p class="message-normal">Our BRIX editor allows you to build new HubSpot pages with simple drag & drop. You can share the page with other team members for review by copying the URL. Once you are ready simply hit the “install” button and your page will be deployed in your HubSpot portal.</p>'+
 '                <p class="message-standalone-module-installer">Sign in to install all modules of The Startup Framework including a sample page.</p>'+
 '                <span id="authContinue" class="authContinue btn btn-orange btn-with-sprocket">SIGN-IN NOW</span>'+
 
