@@ -55,7 +55,7 @@ var startAuth = function(editorUrl) {
     buildHiddenForm('0737253c-3c80-40cf-9179-f33b69dff350', {
         redirectUrl: redirectUrl
     }, function($form) {
-        $form.attr("target", "_top");
+        $form.attr("target", "_blank");
         $form.find("[name=brix_is_trial_portal]").val($("#is-trial-portal:checked").length ? "Yes" : "No").change();
         $form.submit();
     });
