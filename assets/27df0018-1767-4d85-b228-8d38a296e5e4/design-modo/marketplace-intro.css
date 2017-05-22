@@ -166,7 +166,7 @@ h1 {
         transform: translateY(0%) scale(1);
     }
 }
-.promo .window {
+.window {
     width: 780px
 }
 .overlay .close {
@@ -310,12 +310,6 @@ h1 {
     padding-top: 35px;
     padding-bottom: 35px;
 }
-#password {
-    background-color: #fff;
-    background-image: url(img/lock.svg);
-    background-repeat: no-repeat;
-    background-position: 97% center;
-}
 .window input::-webkit-input-placeholder {
     font-size: 16px;
     padding-top: 6px;
@@ -333,25 +327,11 @@ h1 {
     padding-top: 6px;
 }
 /* Window style part 2 -design-mode-generator-extra-*/
-
-.mode-install-all-modules .toggle,
-.mode-install-all-modules .install-container,
-.mode-install-all-modules .slack-invite-container,
-.mode-install-all-modules #blocksHolder,
-.mode-install-all-modules #menu {
-    display: none !important;
-}
-html:not(.mode-install-all-modules) .message-standalone-module-installer {
-    display: none;
-}
-.mode-install-all-modules .message-normal {
-    display: none;
-}
 .hidden {
     display: block;
     visibility: initial;
 }
-.btn {
+.window .btn {
     display: block;
     max-width: 157px;
     width: 100%;
@@ -369,19 +349,19 @@ html:not(.mode-install-all-modules) .message-standalone-module-installer {
     color: #ffffff;
     cursor: pointer;
 }
-.btn-orange,
+.window .btn-orange,
 .window .downSide .button.orange {
     background-color: #e85338;
 }
 .window .btn-orange,
-.button.orange {
+.window .button.orange {
     color: #ffffff;
 }
 #authContinue {
     position: relative;
     max-width: 187px;
 }
-.btn-with-sprocket:before {
+.window .btn-with-sprocket:before {
     content: '';
     position: absolute;
     top: 4px;
@@ -408,10 +388,10 @@ html:not(.mode-install-all-modules) .message-standalone-module-installer {
 }
 #authcompletewindow .window img,
 #authwindow .window img,
-.popup-brix-logo {
+.window .popup-brix-logo {
     margin-bottom: 20px;
 }
-.popup-brix-logo {
+.window .popup-brix-logo {
     display: block;
     margin-left: auto;
     margin-right: auto;
