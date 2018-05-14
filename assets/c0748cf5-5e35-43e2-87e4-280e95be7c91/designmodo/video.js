@@ -29,6 +29,7 @@ jQuery(document).ready(function() {
         addDefaultParam("videoFoam", "true");
       }
     } else if (/\byoutube\b/g.test(href) || /\byoutu\.be\b/g.test(href)) {
+      href = href.replace(/^https?:\/\/youtu\.be\//i, "https://www.youtube.com/watch?v=");
       addDefaultParam("rel", "0");
       addDefaultParam("showinfo", "0");
       if (bgMode) {
