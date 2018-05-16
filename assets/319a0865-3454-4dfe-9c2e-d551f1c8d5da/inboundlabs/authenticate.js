@@ -1,5 +1,3 @@
-<!-- Magnific Popup core CSS file -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
 <!-- https://github.com/js-cookie/js-cookie  -->
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 <!-- jQuery 1.7.2+ or Zepto.js 1.0+ -->
@@ -24,6 +22,7 @@
 
 <script>
     $(document).ready(function() {
+    $('head').append('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">');
     var cookie_val = Cookies.get('authenticated');
     if(cookie_val == "true")
         console.log("exit script");
