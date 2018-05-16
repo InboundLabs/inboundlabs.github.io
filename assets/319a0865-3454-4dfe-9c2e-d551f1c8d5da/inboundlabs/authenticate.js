@@ -1,11 +1,9 @@
-<script>
 	var url_magnific = "https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js";
-	var url_cookie = "https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js";
-$.getScript(url_cookie, function() {
-    var cookie_val = Cookies.get('il_internal_auth');
-		if (cookie_val == "true")
+    var re = new RegExp('[; ]'+'il_internal_auth'+'=([^\\s;]*)');
+    var sMatch = (' '+document.cookie).match(re);
+    if(sMatch)
 		    console.log("exit script");
-		else{
+	else{
 	$.getScript(url_magnific, function() {
 			console.log("proceed with script");
 			$('<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">').appendTo("head");
@@ -22,7 +20,7 @@ $.getScript(url_cookie, function() {
 			});
 		
 		$("#auth-form").submit(function(event) {
-			Cookies.set('il_internal_auth', 'true');
+			document.cookie = "il_internal_auth=true";
 			event.preventDefault();
 			$.magnificPopup.close();
 		});
@@ -33,4 +31,3 @@ $.getScript(url_cookie, function() {
 		var link = '<a class="popup-modal" href="#test-modal">Open modal</a>';
 	});
 		}
-}); </script>
