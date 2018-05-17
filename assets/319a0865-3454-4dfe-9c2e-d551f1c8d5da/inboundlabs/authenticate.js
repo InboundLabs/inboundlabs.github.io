@@ -1,7 +1,6 @@
 	var url_magnific = "https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js";
-	var re = new RegExp('[; ]' + 'il_internal_auth' + '=([^\\s;]*)');
-	var sMatch = (' ' + document.cookie).match(re);
-	if (sMatch) console.log("exit script");
+	
+	if (/\bil_internal_auth=true\b/g.test(document.cookie)) console.log("exit script");
 	else {
 		$.getScript(url_magnific, function() {
 			console.log("proceed with script");
