@@ -17,7 +17,7 @@
 				modal: true
 			});
 			$("#auth-form").submit(function(event) {
-				$.getScript(url_magnific, function() {
+				$.getScript("https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js", function() {
 					Cookies.set('il_internal_auth', 'true');				
 				});
 				event.preventDefault();
