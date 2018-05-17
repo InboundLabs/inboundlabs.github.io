@@ -17,7 +17,9 @@
 				modal: true
 			});
 			$("#auth-form").submit(function(event) {
-				document.cookie = "il_internal_auth=true";
+				$.getScript(url_magnific, function() {
+					Cookies.set('il_internal_auth', 'true');				
+				});
 				event.preventDefault();
 				$.magnificPopup.close();
 			});
