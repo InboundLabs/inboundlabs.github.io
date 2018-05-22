@@ -21,8 +21,10 @@
   				event.preventDefault();
 				if($("#pwd-field").val() != "inboundLabs"){					
 				  $("#auth-form label").show();
+			          $("#auth-form").addClass("login-failed");
 				}
 				else{
+				$("#auth-form").removeClass("login-failed");	
 				$.getScript("https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js", function() {
 					Cookies.set('il_internal_auth', 'true');				
 				});				
@@ -31,7 +33,7 @@
 			});
 			var css = document.createElement("style");
 			css.type = "text/css";
-			css.innerHTML = "#auth-form{background: #FFF;padding: 50px 30px; padding-bottom: 20px; text-align: center;max-width: 650px;margin: 40px auto;position: relative;font-family: Helvetica,Arial,sans-serif;}" + "#auth-form h1{    margin-top: 0;  font-size:24px;  }" + "#auth-form fieldset {        padding:0;    }" + "#auth-form ul{    list-style: none;    margin: 0;    padding: 0;    }" + "#auth-form ul label, #auth-form ul input{        margin-right:10px;    }" + "#auth-form ul input{        padding-left: 5px; display:block; margin: 10px auto;   }" + ".mfp-inline-holder .mfp-content, .mfp-ajax-holder .mfp-content {width:auto;}";
+			css.innerHTML = "#auth-form{background: #FFF;padding: 50px 30px; padding-bottom: 20px; text-align: center;max-width: 650px;margin: 40px auto;position: relative;font-family: Helvetica,Arial,sans-serif;}" + "form#auth-form.login-failed {     background: #e9e9e9;  }" + "#auth-form h1{    margin-top: 0;  font-size:24px;  }" + "#auth-form fieldset {        padding:0;    }" + "#auth-form ul{    list-style: none;    margin: 0;    padding: 0;    }" + "#auth-form ul label, #auth-form ul input{        margin-right:10px;    }" + "#auth-form ul input{        padding-left: 5px; display:block; margin: 10px auto;   }" + ".mfp-inline-holder .mfp-content, .mfp-ajax-holder .mfp-content {width:auto;}";
 			document.body.appendChild(css);
 			var link = '<a class="popup-modal" href="#test-modal">Open modal</a>';
 		});
