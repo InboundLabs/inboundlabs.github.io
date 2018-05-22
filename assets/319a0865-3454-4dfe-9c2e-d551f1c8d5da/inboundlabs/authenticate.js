@@ -25,7 +25,7 @@
 			});
 			var css = document.createElement("style");
 			css.type = "text/css";
-			css.innerHTML = "#auth-form{background: #FFF;padding: 50px 30px;text-align: left;max-width: 650px;margin: 40px auto;position: relative;font-family: Helvetica,Arial,sans-serif;}" + "#auth-form h1{    margin-top: 0;    }" + "#auth-form fieldset {        padding:0;    }" + "#auth-form ul{    list-style: none;    margin: 0;    padding: 0;    }" + "#auth-form ul label, #auth-form ul input{        margin-right:10px;    }" + "#auth-form ul input{        padding-left: 5px;    }";
+			css.innerHTML = "#auth-form{background: #FFF;padding: 50px 30px;text-align: center;max-width: 650px;margin: 40px auto;position: relative;font-family: Helvetica,Arial,sans-serif;}" + "#auth-form h1{    margin-top: 0;  font-size:24px;  }" + "#auth-form fieldset {        padding:0;    }" + "#auth-form ul{    list-style: none;    margin: 0;    padding: 0;    }" + "#auth-form ul label, #auth-form ul input{        margin-right:10px;    }" + "#auth-form ul input{        padding-left: 5px; display:block; margin: 10px auto;   }" + ".mfp-inline-holder .mfp-content, .mfp-ajax-holder .mfp-content {width:auto;}";
 			document.body.appendChild(css);
 			var link = '<a class="popup-modal" href="#test-modal">Open modal</a>';
 		});
