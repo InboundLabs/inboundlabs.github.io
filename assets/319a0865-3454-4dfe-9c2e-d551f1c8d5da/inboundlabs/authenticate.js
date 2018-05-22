@@ -5,9 +5,9 @@
 		$.getScript(url_magnific, function() {
 			console.log("proceed with script");
 			$('<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">').appendTo("head");
-			var modal = '<div id="test-modal" class="white-popup-block mfp-hide">' + '<form id="auth-form">' + '<h1>Authenticate</h1>' + '<fieldset style="border:0;"> <ul> <li> <label for="name">Password</label>' + '<input id="pwd-field" type="password" name="psw">' + '<input type="submit" value="SUBMIT"> </li> </ul> </fieldset> <label style="color: red;">Login failed: Please make sure your password is correct.</label></form></div>';
+			var modal = '<div id="test-modal" class="white-popup-block mfp-hide">' + '<form id="auth-form">' + '<h1>Authenticate</h1>' + '<fieldset style="border:0;"> <ul> <li> <label for="name">Password</label>' + '<input id="pwd-field" type="password" name="psw">' + '<input type="submit" value="SUBMIT"> </li> </ul> </fieldset> <label class="error" style="color: red;">Login failed: Please make sure your password is correct.</label></form></div>';
 			$("body").append(modal);
-			$("#auth-form label").css("visibility", "hidden");
+			$("#auth-form label.error").css("visibility", "hidden");
 			$.magnificPopup.open({
 				items: {
 					src: '#test-modal'
@@ -20,7 +20,7 @@
 			$("#auth-form").submit(function(event) {
   				event.preventDefault();
 				if($("#pwd-field").val() != "inboundLabs"){					
-				  $("#auth-form label").css("visibility", "");
+				  $("#auth-form label.error").css("visibility", "");
 			          $("#auth-form").addClass("login-failed");
 				}
 				else{
